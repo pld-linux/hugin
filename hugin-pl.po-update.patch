@@ -1,0 +1,128 @@
+--- hugin-0.5-beta4/src/hugin/po/pl.po.orig	2005-03-08 22:10:50.000000000 +0100
++++ hugin-0.5-beta4/src/hugin/po/pl.po	2005-04-03 01:14:11.563997712 +0200
+@@ -10,7 +10,7 @@
+ "POT-Creation-Date: 2005-03-08 21:37+0100\n"
+ "PO-Revision-Date: 2005-02-07 10:19-0500\n"
+ "Last-Translator: Marek Januszewski <spec@webtech.pl>\n"
+-"Language-Team: Polish <pl@li.org>\n"
++"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=utf-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+@@ -364,27 +364,24 @@
+ msgstr "Tworzę zdjęcie piramidalne dla %s, poziom %d"
+ 
+ #: src/hugin/ImageCenter.cpp:61
+-#, fuzzy
+ msgid "Crop Image"
+-msgstr "Zdjęcie-odniesienie"
++msgstr "Ucięcie zdjęcia"
+ 
+ #: src/hugin/ImageCenter.cpp:80
+ msgid "Left:"
+-msgstr ""
++msgstr "Lewo:"
+ 
+ #: src/hugin/ImageCenter.cpp:85
+-#, fuzzy
+ msgid "Right:"
+-msgstr "wysokość"
++msgstr "Prawo:"
+ 
+ #: src/hugin/ImageCenter.cpp:90
+ msgid "Top:"
+-msgstr ""
++msgstr "Góra:"
+ 
+ #: src/hugin/ImageCenter.cpp:95
+-#, fuzzy
+ msgid "Bottom:"
+-msgstr "Zoom:"
++msgstr "Dół:"
+ 
+ #: src/hugin/ImageCenter.cpp:100 src/hugin/xrc/images_panel.xrs:31
+ msgid "Reset"
+@@ -392,13 +389,12 @@
+ 
+ #: src/hugin/ImageCenter.cpp:102
+ msgid "Always center Crop on d,e"
+-msgstr ""
++msgstr "Zawsze centralne ucięcie na d,e"
+ 
+ #: src/hugin/ImageCenter.cpp:207 src/hugin/ImageCenter.cpp:222
+ #: src/hugin/ImageCenter.cpp:237 src/hugin/ImageCenter.cpp:252
+-#, fuzzy
+ msgid "Please enter a valid number"
+-msgstr "Błąd: proszę wpisać poprawny numer"
++msgstr "Proszę wpisać poprawną liczbę"
+ 
+ #: src/hugin/ImageOrientationPanel.cpp:132
+ #, c-format
+@@ -479,7 +475,7 @@
+ 
+ #: src/hugin/ImagesList.cpp:291
+ msgid "Crop"
+-msgstr ""
++msgstr "Ucięcie"
+ 
+ #: src/hugin/ImagesList.cpp:305 src/hugin/xrc/lens_panel.xrs:2
+ msgid "Normal (rectilinear)"
+@@ -725,10 +721,13 @@
+ "The crop settings will be ignored\n"
+ "Continue anyway?"
+ msgstr ""
++"Nona nie obsługuje jeszcze uciętych zdjęć.\n"
++"Ustawienia ucięcia zostaną zignorowane\n"
++"Kontynuować mimo to?"
+ 
+ #: src/hugin/NonaStitcherPanel.cpp:261
+ msgid "Cropping not supported by nona"
+-msgstr ""
++msgstr "Ucinanie nie obsługiwane przez nonę"
+ 
+ #: src/hugin/NonaStitcherPanel.cpp:280
+ msgid "error during stitching:"
+@@ -1675,13 +1674,12 @@
+ msgstr "pionowy (e):"
+ 
+ #: src/hugin/xrc/lens_panel.xrs:35
+-#, fuzzy
+ msgid "Set Crop"
+-msgstr "Zatrzymaj"
++msgstr "Ustawienie ucięcie"
+ 
+ #: src/hugin/xrc/lens_panel.xrs:36
+ msgid "Set crop and image center"
+-msgstr ""
++msgstr "Ustawienie ucięcia i środka zdjęcia"
+ 
+ #: src/hugin/xrc/lens_panel.xrs:37
+ msgid "Camera and Lens Information"
+@@ -2468,7 +2466,7 @@
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:42
+ msgid "Optimize and stitch only images selected in preview window"
+-msgstr ""
++msgstr "Optymalizowanie i łączenie tylko zdjęć wybranych w oknie podglądu"
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:43
+ msgid "File options"
+@@ -2551,7 +2549,7 @@
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:67
+ msgid "Delete remapped tiff files"
+-msgstr ""
++msgstr "Usuń przemapowane pliki tiff"
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:68
+ msgid "Ok"
+@@ -2745,9 +2743,3 @@
+ #: src/hugin/xrc/run_stitcher_frame.xrs:3
+ msgid "Abort"
+ msgstr "Anuluj"
+-
+-#~ msgid "Center dialog"
+-#~ msgstr "Wycentruj okno"
+-
+-#~ msgid "center image shifting it with d and e"
+-#~ msgstr "wypośrodkój zdjęcie przesuwając je przez d i e"
