@@ -1,5 +1,5 @@
 --- hugin-0.5-beta4/src/hugin/po/pl.po.orig	2005-03-08 22:10:50.000000000 +0100
-+++ hugin-0.5-beta4/src/hugin/po/pl.po	2005-04-03 01:14:11.563997712 +0200
++++ hugin-0.5-beta4/src/hugin/po/pl.po	2005-04-03 20:23:36.906672008 +0200
 @@ -10,7 +10,7 @@
  "POT-Creation-Date: 2005-03-08 21:37+0100\n"
  "PO-Revision-Date: 2005-02-07 10:19-0500\n"
@@ -67,6 +67,15 @@
  
  #: src/hugin/ImagesList.cpp:305 src/hugin/xrc/lens_panel.xrs:2
  msgid "Normal (rectilinear)"
+@@ -619,7 +615,7 @@
+ 
+ #: src/hugin/MainFrame.cpp:517
+ msgid "PTStitcher files (*.txt)|*.txt"
+-msgstr "Pliki PTStitcher'a (*.txt)|*.txt"
++msgstr "Pliki PTStitchera (*.txt)|*.txt"
+ 
+ #: src/hugin/MainFrame.cpp:543
+ msgid "Open project:   "
 @@ -725,10 +721,13 @@
  "The crop settings will be ignored\n"
  "Continue anyway?"
@@ -82,6 +91,56 @@
  
  #: src/hugin/NonaStitcherPanel.cpp:280
  msgid "error during stitching:"
+@@ -1148,7 +1147,7 @@
+ 
+ #: src/hugin/PTStitcherPanel.cpp:431
+ msgid "PTStitcher note"
+-msgstr "uwaga PTStitcher'a"
++msgstr "uwaga PTStitchera"
+ 
+ #: src/hugin/RunOptimizerFrame.cpp:116
+ msgid "No PTOptimizer.exe selected"
+@@ -1156,11 +1155,11 @@
+ 
+ #: src/hugin/RunOptimizerFrame.cpp:140
+ msgid "Failed to launch PTOptimizer."
+-msgstr "Błąd uruchamiania PTOptimizer"
++msgstr "Błąd uruchamiania PTOptimizera."
+ 
+ #: src/hugin/RunOptimizerFrame.cpp:151
+ msgid "Could not obtain PTOptimizer output"
+-msgstr "Błąd w wyników rezultatu z PTOptimizer'a"
++msgstr "Nie udało się uzyskać wyjścia z PTOptimizera"
+ 
+ #: src/hugin/RunOptimizerFrame.cpp:161
+ msgid "Stop"
+@@ -1214,7 +1213,7 @@
+ "Optymalizator zakończył pracę.\n"
+ "Rezultaty:\n"
+ " średnia odległość punktów kontrolnych: %f\n"
+-" standardowa dewiacja: %f\n"
++" odchylenie standardowe: %f\n"
+ " maximum: %f\n"
+ "\n"
+ "Zastosować zmiany?"
+@@ -1233,7 +1232,7 @@
+ 
+ #: src/hugin/RunStitcherFrame.cpp:158
+ msgid "Could not obtain PTStitcher output"
+-msgstr "Błąd w wyników rezultatu z PTStitcher'a"
++msgstr "Nie udało się uzyskać wyjścia z PTStitchera"
+ 
+ #: src/hugin/RunStitcherFrame.cpp:282
+ msgid ""
+@@ -1441,7 +1440,7 @@
+ 
+ #: src/hugin/xrc/help.xrs:1
+ msgid "Hugin Reference"
+-msgstr "Instrukcja Hugin'a"
++msgstr "Instrukcja Hugina"
+ 
+ #: src/hugin/xrc/help.xrs:2 src/hugin/xrc/image_center.xrs:3
+ #: src/hugin/xrc/keyboard_help.xrs:2
 @@ -1675,13 +1674,12 @@
  msgstr "pionowy (e):"
  
@@ -89,7 +148,7 @@
 -#, fuzzy
  msgid "Set Crop"
 -msgstr "Zatrzymaj"
-+msgstr "Ustawienie ucięcie"
++msgstr "Ustaw ucięcie"
  
  #: src/hugin/xrc/lens_panel.xrs:36
  msgid "Set crop and image center"
@@ -98,6 +157,51 @@
  
  #: src/hugin/xrc/lens_panel.xrs:37
  msgid "Camera and Lens Information"
+@@ -2026,7 +2024,7 @@
+ 
+ #: src/hugin/xrc/main_tool.xrs:33
+ msgid "Display credits for the creators of Hugin"
+-msgstr "Wyświetl autorów Hugin'a"
++msgstr "Wyświetl autorów Hugina"
+ 
+ #: src/hugin/xrc/nona_panel.xrs:1 src/hugin/xrc/ptstitcher_panel.xrs:1
+ msgid "Stitching Options"
+@@ -2046,7 +2044,7 @@
+ 
+ #: src/hugin/xrc/nona_panel.xrs:12
+ msgid "Soft Blending (requires enblend, only TIFF output)"
+-msgstr "Miękkie łączenie (wymaga enblend'a, tylko dla plików TIFF)"
++msgstr "Miękkie łączenie (wymaga enblenda, tylko dla plików TIFF)"
+ 
+ #: src/hugin/xrc/nona_panel.xrs:13
+ msgid ""
+@@ -2130,7 +2128,7 @@
+ 
+ #: src/hugin/xrc/optimize_panel.xrs:11
+ msgid "execute the PTOptimizer engine"
+-msgstr "uruchom PTOptimizer'a"
++msgstr "uruchom PTOptimizera"
+ 
+ #: src/hugin/xrc/optimize_panel.xrs:12
+ msgid "Custom Optimization Variables"
+@@ -2220,7 +2218,7 @@
+ 
+ #: src/hugin/xrc/pano_panel.xrs:8
+ msgid "into a layered Photoshop file"
+-msgstr "w plik Photoshop'a z warstwami"
++msgstr "w plik Photoshopa z warstwami"
+ 
+ #: src/hugin/xrc/pano_panel.xrs:9
+ msgid "as a Rectilinear"
+@@ -2452,7 +2450,7 @@
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:39
+ msgid "requires restarting hugin"
+-msgstr "wymaga restartu hugin'a"
++msgstr "wymaga restartu hugina"
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:40
+ msgid "Cursor Type"
 @@ -2468,7 +2466,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:42
@@ -107,6 +211,20 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:43
  msgid "File options"
+@@ -2480,11 +2478,11 @@
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:45
+ msgid "leave empty for OS default"
+-msgstr "Dla domyślnych OS'a nie wypełniaj"
++msgstr "Dla domyślnych wartości systemu pozostaw puste"
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:47
+ msgid "Show Druid (requires restarting hugin)"
+-msgstr "Pokaż asystenta (wymaga restartu hugin'a)"
++msgstr "Pokaż asystenta (wymaga restartu hugina)"
+ 
+ #: src/hugin/xrc/pref_dialog.xrs:48 src/hugin/xrc/pref_dialog.xrs:56
+ msgid "Autopano"
 @@ -2551,7 +2549,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:67
@@ -116,6 +234,15 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:68
  msgid "Ok"
+@@ -2620,7 +2618,7 @@
+ #: src/hugin/xrc/preview_frame.xrs:20 src/hugin/xrc/ptstitcher_panel.xrs:14
+ #: src/hugin/xrc/ptstitcher_panel.xrs:24
+ msgid "None"
+-msgstr "Żaden"
++msgstr "Brak"
+ 
+ #: src/hugin/xrc/ptstitcher_panel.xrs:11
+ msgid "approximation of values between source pixels"
 @@ -2745,9 +2743,3 @@
  #: src/hugin/xrc/run_stitcher_frame.xrs:3
  msgid "Abort"
