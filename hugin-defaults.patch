@@ -1,0 +1,25 @@
+Use nona as default stitcher.
+Use mono to run autopanog.exe.
+
+--- hugin-0.5-beta4/src/hugin/PanoPanel.cpp.orig	2005-02-22 11:08:43.000000000 +0100
++++ hugin-0.5-beta4/src/hugin/PanoPanel.cpp	2005-04-03 19:04:34.599612264 +0200
+@@ -121,7 +121,7 @@
+     pano->addObserver (this);
+ 
+     // setup the stitcher
+-    int t = wxConfigBase::Get()->Read(wxT("Stitcher/DefaultStitcher"),0l);
++    int t = wxConfigBase::Get()->Read(wxT("Stitcher/DefaultStitcher"),1l);
+     m_StitcherChoice->SetSelection(t);
+ 
+     // trigger creation of apropriate stitcher control, if
+--- hugin-0.5-beta4/src/include/hugin/config_defaults.h.orig	2005-03-07 21:09:29.000000000 +0100
++++ hugin-0.5-beta4/src/include/hugin/config_defaults.h	2005-04-03 19:10:22.256760344 +0200
+@@ -95,7 +95,7 @@
+ #define HUGIN_APKOLOR_EXE                     ""
+ #define HUGIN_APKOLOR_ARGS                    ""
+ 
+-#define HUGIN_APSIFT_EXE                      "autopanog.exe"
++#define HUGIN_APSIFT_EXE                      "mono /usr/bin/autopanog.exe"
+ 
+ #endif
+ 
