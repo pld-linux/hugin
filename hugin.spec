@@ -31,9 +31,17 @@ With hugin you can assemble a mosaic of photographs into a complete
 immensive panorama, stitch any series of overlapping pictures and much
 more.
  
+Note: Hugin can use autopano-sift package to match images and enblend
+package for soft blending, so you'll probably want to install them
+too.
+
 %description -l pl
 Przy u¿yciu hugina mo¿na po³±czyæ wiele fotografii w kompletn±, du¿±
 panoramê, skleiæ dowolny ci±g nak³adaj±cych siê zdjêæ i wiele wiêcej.
+
+Hugin mo¿e u¿ywaæ pakietu autopano-shift do dopasowania zdjêæ oraz
+pakiet enblend do wyg³adzenia krawêdzi po ³±czeniu - wiêc warto te
+pakiety tak¿e zainstalowaæ.
 
 %prep
 %setup -q -n %{name}-%{version}-%{bver}
