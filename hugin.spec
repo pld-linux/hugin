@@ -10,6 +10,7 @@ Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
 # Source0-md5:	b852b334400ba9d4ae91a5a628846491
 Patch0:		%{name}-pl.po-update.patch
+Patch1:		%{name}-defaults.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	boost-test-devel
 BuildRequires:	gettext-devel
@@ -37,6 +38,7 @@ panoramê, skleiæ dowolny ci±g nak³adaj±cych siê zdjêæ i wiele wiêcej.
 %prep
 %setup -q -n %{name}-%{version}-%{bver}
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure \
