@@ -1,120 +1,122 @@
---- hugin-0.5-beta4/src/hugin/po/pl.po.orig	2005-03-08 22:10:50.000000000 +0100
-+++ hugin-0.5-beta4/src/hugin/po/pl.po	2005-04-03 20:23:36.906672008 +0200
-@@ -10,7 +10,7 @@
- "POT-Creation-Date: 2005-03-08 21:37+0100\n"
- "PO-Revision-Date: 2005-02-07 10:19-0500\n"
+--- hugin-0.5-beta4/src/hugin/po/pl.po.orig	2005-05-01 00:13:30.350244648 +0200
++++ hugin-0.5-beta4/src/hugin/po/pl.po	2005-05-01 00:19:36.386598664 +0200
+@@ -8,9 +8,9 @@
+ "Project-Id-Version: hugin 0.5\n"
+ "Report-Msgid-Bugs-To: pablo.dangelo@web.de\n"
+ "POT-Creation-Date: 2005-04-26 12:54+0300\n"
+-"PO-Revision-Date: 2005-04-02 12:45-0500\n"
++"PO-Revision-Date: 2005-05-01 00:10+0200\n"
  "Last-Translator: Marek Januszewski <spec@webtech.pl>\n"
 -"Language-Team: Polish <pl@li.org>\n"
 +"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
  "MIME-Version: 1.0\n"
  "Content-Type: text/plain; charset=utf-8\n"
  "Content-Transfer-Encoding: 8bit\n"
-@@ -364,27 +364,24 @@
- msgstr "Tworzę zdjęcie piramidalne dla %s, poziom %d"
+@@ -61,13 +61,12 @@
+ msgstr "Nie wybrano autopano"
  
- #: src/hugin/ImageCenter.cpp:61
+ #: src/hugin/AutoCtrlPointCreator.cpp:201
 -#, fuzzy
- msgid "Crop Image"
--msgstr "Zdjęcie-odniesienie"
-+msgstr "Ucięcie zdjęcia"
+ msgid "Select autopano frontend script"
+-msgstr "Wybierz autopano-sift skrypt interfejsu"
++msgstr "Wybierz skrypt interfejsu autopano"
+ 
+ #: src/hugin/AutoCtrlPointCreator.cpp:203
+ msgid "Shell Scripts (*.sh)|*.sh"
+-msgstr ""
++msgstr "Skrypty powłoki (*.sh)|*.sh"
+ 
+ #: src/hugin/AutoCtrlPointCreator.cpp:248
+ #, c-format
+@@ -88,14 +87,12 @@
+ "sift"
+ 
+ #: src/hugin/AutoCtrlPointCreator.cpp:288
+-#, fuzzy
+ msgid "Select autopano .Net executable."
+-msgstr "Wybierz typ autopano"
++msgstr "Wybierz plik wykonywany .Net autopano"
+ 
+ #: src/hugin/AutoCtrlPointCreator.cpp:297
+-#, fuzzy
+ msgid "No autopano directory selected"
+-msgstr "Nie wybrano autopano"
++msgstr "Nie wybrano katalogu autopano"
+ 
+ #: src/hugin/AutoCtrlPointCreator.cpp:305
+ #: src/hugin/AutoCtrlPointCreator.cpp:439
+@@ -384,7 +381,7 @@
  
  #: src/hugin/ImageCenter.cpp:80
  msgid "Left:"
--msgstr ""
+-msgstr "Lewy:"
 +msgstr "Lewo:"
  
  #: src/hugin/ImageCenter.cpp:85
--#, fuzzy
  msgid "Right:"
--msgstr "wysokość"
-+msgstr "Prawo:"
- 
- #: src/hugin/ImageCenter.cpp:90
- msgid "Top:"
--msgstr ""
-+msgstr "Góra:"
- 
- #: src/hugin/ImageCenter.cpp:95
--#, fuzzy
- msgid "Bottom:"
--msgstr "Zoom:"
-+msgstr "Dół:"
- 
- #: src/hugin/ImageCenter.cpp:100 src/hugin/xrc/images_panel.xrs:31
- msgid "Reset"
-@@ -392,13 +389,12 @@
- 
- #: src/hugin/ImageCenter.cpp:102
- msgid "Always center Crop on d,e"
--msgstr ""
-+msgstr "Zawsze centralne ucięcie na d,e"
- 
+@@ -418,7 +415,7 @@
  #: src/hugin/ImageCenter.cpp:207 src/hugin/ImageCenter.cpp:222
  #: src/hugin/ImageCenter.cpp:237 src/hugin/ImageCenter.cpp:252
--#, fuzzy
  msgid "Please enter a valid number"
--msgstr "Błąd: proszę wpisać poprawny numer"
+-msgstr "Proszę wpisać poprawny numer"
 +msgstr "Proszę wpisać poprawną liczbę"
  
  #: src/hugin/ImageOrientationPanel.cpp:132
  #, c-format
-@@ -479,7 +475,7 @@
- 
- #: src/hugin/ImagesList.cpp:291
- msgid "Crop"
+@@ -623,12 +620,12 @@
+ #: src/hugin/MainFrame.cpp:476 src/hugin/MainFrame.cpp:504
+ #: src/hugin/MainFrame.cpp:523 src/hugin/PanoPanel.cpp:495
+ msgid "No images - Nothing to do"
 -msgstr ""
-+msgstr "Ucięcie"
++msgstr "Brak zdjęć - nie ma nic do zrobienia"
  
- #: src/hugin/ImagesList.cpp:305 src/hugin/xrc/lens_panel.xrs:2
- msgid "Normal (rectilinear)"
-@@ -619,7 +615,7 @@
+ #: src/hugin/MainFrame.cpp:476 src/hugin/MainFrame.cpp:504
+ #: src/hugin/MainFrame.cpp:523 src/hugin/PanoPanel.cpp:495
+ msgid "Warning"
+-msgstr ""
++msgstr "Uwaga"
  
- #: src/hugin/MainFrame.cpp:517
+ #: src/hugin/MainFrame.cpp:495
+ #, c-format
+@@ -649,7 +646,7 @@
+ 
+ #: src/hugin/MainFrame.cpp:529
  msgid "PTStitcher files (*.txt)|*.txt"
 -msgstr "Pliki PTStitcher'a (*.txt)|*.txt"
 +msgstr "Pliki PTStitchera (*.txt)|*.txt"
  
- #: src/hugin/MainFrame.cpp:543
+ #: src/hugin/MainFrame.cpp:555
  msgid "Open project:   "
-@@ -725,10 +721,13 @@
- "The crop settings will be ignored\n"
- "Continue anyway?"
- msgstr ""
-+"Nona nie obsługuje jeszcze uciętych zdjęć.\n"
-+"Ustawienia ucięcia zostaną zignorowane\n"
-+"Kontynuować mimo to?"
- 
- #: src/hugin/NonaStitcherPanel.cpp:261
- msgid "Cropping not supported by nona"
--msgstr ""
-+msgstr "Ucinanie nie obsługiwane przez nonę"
- 
- #: src/hugin/NonaStitcherPanel.cpp:280
- msgid "error during stitching:"
-@@ -1148,7 +1147,7 @@
+@@ -1182,24 +1179,23 @@
  
  #: src/hugin/PTStitcherPanel.cpp:431
  msgid "PTStitcher note"
 -msgstr "uwaga PTStitcher'a"
 +msgstr "uwaga PTStitchera"
  
- #: src/hugin/RunOptimizerFrame.cpp:116
+ #: src/hugin/RunOptimizerFrame.cpp:117
  msgid "No PTOptimizer.exe selected"
-@@ -1156,11 +1155,11 @@
+ msgstr "Nie wybrano PTOptimizer.exe"
  
- #: src/hugin/RunOptimizerFrame.cpp:140
+ #: src/hugin/RunOptimizerFrame.cpp:131
+-#, fuzzy
+ msgid "No PTOptimizer selected"
+-msgstr "Nie wybrano PTOptimizer.exe"
++msgstr "Nie wybrano PTOptimizera"
+ 
+ #: src/hugin/RunOptimizerFrame.cpp:155
  msgid "Failed to launch PTOptimizer."
 -msgstr "Błąd uruchamiania PTOptimizer"
 +msgstr "Błąd uruchamiania PTOptimizera."
  
- #: src/hugin/RunOptimizerFrame.cpp:151
+ #: src/hugin/RunOptimizerFrame.cpp:166
  msgid "Could not obtain PTOptimizer output"
 -msgstr "Błąd w wyników rezultatu z PTOptimizer'a"
 +msgstr "Nie udało się uzyskać wyjścia z PTOptimizera"
  
- #: src/hugin/RunOptimizerFrame.cpp:161
+ #: src/hugin/RunOptimizerFrame.cpp:176
  msgid "Stop"
-@@ -1214,7 +1213,7 @@
+@@ -1248,7 +1244,7 @@
  "Optymalizator zakończył pracę.\n"
  "Rezultaty:\n"
  " średnia odległość punktów kontrolnych: %f\n"
@@ -123,7 +125,7 @@
  " maximum: %f\n"
  "\n"
  "Zastosować zmiany?"
-@@ -1233,7 +1232,7 @@
+@@ -1267,7 +1263,7 @@
  
  #: src/hugin/RunStitcherFrame.cpp:158
  msgid "Could not obtain PTStitcher output"
@@ -132,7 +134,7 @@
  
  #: src/hugin/RunStitcherFrame.cpp:282
  msgid ""
-@@ -1441,7 +1440,7 @@
+@@ -1475,7 +1471,7 @@
  
  #: src/hugin/xrc/help.xrs:1
  msgid "Hugin Reference"
@@ -141,14 +143,7 @@
  
  #: src/hugin/xrc/help.xrs:2 src/hugin/xrc/image_center.xrs:3
  #: src/hugin/xrc/keyboard_help.xrs:2
-@@ -1675,13 +1674,12 @@
- msgstr "pionowy (e):"
- 
- #: src/hugin/xrc/lens_panel.xrs:35
--#, fuzzy
- msgid "Set Crop"
--msgstr "Zatrzymaj"
-+msgstr "Ustaw ucięcie"
+@@ -1714,7 +1710,7 @@
  
  #: src/hugin/xrc/lens_panel.xrs:36
  msgid "Set crop and image center"
@@ -157,7 +152,7 @@
  
  #: src/hugin/xrc/lens_panel.xrs:37
  msgid "Camera and Lens Information"
-@@ -2026,7 +2024,7 @@
+@@ -2059,7 +2055,7 @@
  
  #: src/hugin/xrc/main_tool.xrs:33
  msgid "Display credits for the creators of Hugin"
@@ -166,7 +161,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:1 src/hugin/xrc/ptstitcher_panel.xrs:1
  msgid "Stitching Options"
-@@ -2046,7 +2044,7 @@
+@@ -2079,7 +2075,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:12
  msgid "Soft Blending (requires enblend, only TIFF output)"
@@ -175,7 +170,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:13
  msgid ""
-@@ -2130,7 +2128,7 @@
+@@ -2163,7 +2159,7 @@
  
  #: src/hugin/xrc/optimize_panel.xrs:11
  msgid "execute the PTOptimizer engine"
@@ -184,7 +179,7 @@
  
  #: src/hugin/xrc/optimize_panel.xrs:12
  msgid "Custom Optimization Variables"
-@@ -2220,7 +2218,7 @@
+@@ -2253,7 +2249,7 @@
  
  #: src/hugin/xrc/pano_panel.xrs:8
  msgid "into a layered Photoshop file"
@@ -193,7 +188,7 @@
  
  #: src/hugin/xrc/pano_panel.xrs:9
  msgid "as a Rectilinear"
-@@ -2452,7 +2450,7 @@
+@@ -2485,7 +2481,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:39
  msgid "requires restarting hugin"
@@ -202,16 +197,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:40
  msgid "Cursor Type"
-@@ -2468,7 +2466,7 @@
- 
- #: src/hugin/xrc/pref_dialog.xrs:42
- msgid "Optimize and stitch only images selected in preview window"
--msgstr ""
-+msgstr "Optymalizowanie i łączenie tylko zdjęć wybranych w oknie podglądu"
- 
- #: src/hugin/xrc/pref_dialog.xrs:43
- msgid "File options"
-@@ -2480,11 +2478,11 @@
+@@ -2513,11 +2509,11 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:45
  msgid "leave empty for OS default"
@@ -225,16 +211,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:48 src/hugin/xrc/pref_dialog.xrs:56
  msgid "Autopano"
-@@ -2551,7 +2549,7 @@
- 
- #: src/hugin/xrc/pref_dialog.xrs:67
- msgid "Delete remapped tiff files"
--msgstr ""
-+msgstr "Usuń przemapowane pliki tiff"
- 
- #: src/hugin/xrc/pref_dialog.xrs:68
- msgid "Ok"
-@@ -2620,7 +2618,7 @@
+@@ -2649,7 +2645,7 @@
  #: src/hugin/xrc/preview_frame.xrs:20 src/hugin/xrc/ptstitcher_panel.xrs:14
  #: src/hugin/xrc/ptstitcher_panel.xrs:24
  msgid "None"
@@ -243,13 +220,3 @@
  
  #: src/hugin/xrc/ptstitcher_panel.xrs:11
  msgid "approximation of values between source pixels"
-@@ -2745,9 +2743,3 @@
- #: src/hugin/xrc/run_stitcher_frame.xrs:3
- msgid "Abort"
- msgstr "Anuluj"
--
--#~ msgid "Center dialog"
--#~ msgstr "Wycentruj okno"
--
--#~ msgid "center image shifting it with d and e"
--#~ msgstr "wypośrodkój zdjęcie przesuwając je przez d i e"
