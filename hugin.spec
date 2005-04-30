@@ -3,14 +3,15 @@ Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
 %define	bver	beta4
-Release:	0.%{bver}.1
+Release:	0.%{bver}.2
 # SIFT is patented in USA and may require license for commercial use
 License:	GPL, non-commercial SIFT license for some code
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
 # Source0-md5:	b852b334400ba9d4ae91a5a628846491
-Patch0:		%{name}-pl.po-update.patch
-Patch1:		%{name}-defaults.patch
+Patch0:		%{name}-cvs.patch
+Patch1:		%{name}-pl.po-update.patch
+Patch2:		%{name}-defaults.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	boost-test-devel
 BuildRequires:	gettext-devel
@@ -20,9 +21,7 @@ BuildRequires:	libpano12-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
-# 2.4.2 would suffice, but passed wx-config is 2.5-specific
-#BuildRequires:	wxGTK2-devel >= 2.4.2
-BuildRequires:	wxGTK2-devel >= 2.5.3
+BuildRequires:	wxGTK2-devel >= 2.6.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -47,6 +46,7 @@ pakiety tak¿e zainstalowaæ.
 %setup -q -n %{name}-%{version}-%{bver}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %configure \
