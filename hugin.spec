@@ -13,6 +13,7 @@ Patch0:		%{name}-cvs.patch
 Patch1:		%{name}-pl.po-update.patch
 Patch2:		%{name}-defaults.patch
 URL:		http://hugin.sf.net/
+BuildRequires:	boost-any-devel
 BuildRequires:	boost-test-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.3
@@ -21,6 +22,7 @@ BuildRequires:	libpano12-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-devel >= 2.6.0
 BuildRequires:	zlib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -47,6 +49,8 @@ pakiety tak¿e zainstalowaæ.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+
+sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' configure
 
 %build
 %configure \
