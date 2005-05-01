@@ -3,7 +3,7 @@ Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
 %define	bver	beta4
-Release:	0.%{bver}.2
+Release:	0.%{bver}.3
 # SIFT is patented in USA and may require license for commercial use
 License:	GPL, non-commercial SIFT license for some code
 Group:		Applications/Graphics
