@@ -14,6 +14,7 @@ Patch1:		%{name}-pl.po-update.patch
 Patch2:		%{name}-defaults.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	boost-any-devel
+BuildRequires:	boost-ref-devel
 BuildRequires:	boost-test-devel
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.3
