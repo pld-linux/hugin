@@ -2,17 +2,18 @@ Summary:	Toolchain to create panoramic images
 Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
-%define	bver	beta4
-Release:	0.%{bver}.3
+%define	bver	beta5
+Release:	0.%{bver}.1
 # SIFT is patented in USA and may require license for commercial use
 License:	GPL, non-commercial SIFT license for some code
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
-# Source0-md5:	b852b334400ba9d4ae91a5a628846491
-Patch0:		%{name}-cvs.patch
-Patch1:		%{name}-pl.po-update.patch
-Patch2:		%{name}-defaults.patch
+# Source0-md5:	a92d4110e95fdd8b65f87131ff04477d
+Patch0:		%{name}-pl.po-update.patch
+Patch1:		%{name}-defaults.patch
 URL:		http://hugin.sf.net/
+BuildRequires:	autoconf >= 2.50
+BuildRequires:	automake
 BuildRequires:	boost-any-devel
 BuildRequires:	boost-ref-devel
 BuildRequires:	boost-test-devel
@@ -23,6 +24,7 @@ BuildRequires:	libpano12-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	libtool >= 2:1.5
 BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-devel >= 2.6.0
 BuildRequires:	zlib-devel
@@ -46,14 +48,19 @@ pakiet enblend do wyg³adzenia krawêdzi po ³±czeniu - wiêc warto te
 pakiety tak¿e zainstalowaæ.
 
 %prep
-%setup -q -n %{name}-%{version}-%{bver}
+%setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
-sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' configure
+sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
 %build
+%{__gettextize}
+%{__libtoolize}
+%{__aclocal} -I m4
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--with-wx-config=wx-gtk2-ansi-config
 %{__make}
