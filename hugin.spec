@@ -54,6 +54,9 @@ pakiety tak¿e zainstalowaæ.
 
 sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
+# to rebuild pl.gmo
+rm -f src/hugin/po/stamp-po
+
 %build
 %{__gettextize}
 %{__libtoolize}
