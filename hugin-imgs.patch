@@ -1,0 +1,13 @@
+--- hugin-0.5/src/Panorama/Panorama.cpp.orig	2005-05-06 05:29:02.000000000 +0200
++++ hugin-0.5/src/Panorama/Panorama.cpp	2005-05-13 23:46:38.730607064 +0200
+@@ -1019,8 +1019,8 @@
+              || (line.compare("# Control Points: Distance between desired and fitted Position (in \"Pixels\")") == 0 )) {
+ 		
+                 // switch to reading the control point distance
+-                if (scriptImgCounter != imgs.size()-1) {
+-                    DEBUG_ERROR("Read only " << scriptImgCounter+1 << " images from PTOptimizer file");
++                if (scriptImgCounter != imgs.size()) {
++                    DEBUG_ERROR("Read only " << scriptImgCounter << " images from PTOptimizer file");
+                 }
+                 DEBUG_DEBUG("Changing state to read control point distances");
+                 state = 1;

@@ -1,0 +1,10 @@
+--- hugin-0.5/src/hugin/PanoPanel.cpp.orig	2005-05-12 23:24:47.915140000 +0200
++++ hugin-0.5/src/hugin/PanoPanel.cpp	2005-05-13 23:08:53.356996200 +0200
+@@ -380,6 +380,7 @@
+         opts.featherWidth = 10;
+         opts.remapAcceleration = PanoramaOptions::MAX_SPEEDUP;
+         m_StitcherChoice->SetSelection(0);
++	break;
+     default:
+ 	DEBUG_ERROR("unknown stitcher preset selected");
+ 	break;
