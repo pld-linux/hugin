@@ -11,6 +11,8 @@ Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
 # Source0-md5:	a92d4110e95fdd8b65f87131ff04477d
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
+Patch2:		%{name}-break.patch
+Patch3:		%{name}-imgs.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -51,6 +53,8 @@ pakiety tak¿e zainstalowaæ.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
