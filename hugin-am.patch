@@ -1,0 +1,27 @@
+--- hugin-0.5/src/tools/Makefile.am.orig	2005-01-28 21:08:54.000000000 +0100
++++ hugin-0.5/src/tools/Makefile.am	2005-05-15 22:23:54.030860120 +0200
+@@ -19,10 +19,10 @@
+ #                       ${top_builddir}/src/foreign/vigra_impex/libvigra_impex.la ${top_builddir}/src/jhead/libjhead.la \
+ #		       ${top_builddir}/src/klt/libklt.la
+ 
+-automatch_SOURCES = automatch.cpp
+-automatch_LDADD   = ${top_builddir}/src/Panorama/libpanorama.la ${top_builddir}/src/common/libcommon.la \
+-	                ${top_builddir}/src/foreign/vigra_impex/libvigra_impex.la ${top_builddir}/src/jhead/libjhead.la \
+-				    ${top_builddir}/src/klt/libklt.la
++#automatch_SOURCES = automatch.cpp
++#automatch_LDADD   = ${top_builddir}/src/Panorama/libpanorama.la ${top_builddir}/src/common/libcommon.la \
++#	                ${top_builddir}/src/foreign/vigra_impex/libvigra_impex.la ${top_builddir}/src/jhead/libjhead.la \
++#				    ${top_builddir}/src/klt/libklt.la
+ 
+ panosifter_SOURCES = panosifter.cpp
+ panosifter_CFLAGS  = $(PNG_FLAGS) $(ZLIB_FLAGS)
+--- hugin-0.5/configure.ac.orig	2005-03-09 06:48:30.000000000 +0100
++++ hugin-0.5/configure.ac	2005-05-15 22:28:28.871078056 +0200
+@@ -230,7 +230,6 @@
+ LIBS=""
+ 
+ AC_CONFIG_FILES([Makefile
+-		 m4/Makefile
+                  src/Makefile
+                  src/Panorama/Makefile
+                  src/common/Makefile
