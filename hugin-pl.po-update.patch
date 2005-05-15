@@ -1,11 +1,11 @@
---- hugin-0.5/src/hugin/po/pl.po.orig	2005-05-12 05:26:06.000000000 +0200
-+++ hugin-0.5/src/hugin/po/pl.po	2005-05-12 22:05:13.233002688 +0200
+--- hugin-0.5/src/hugin/po/pl.po.orig	2005-05-14 20:47:46.000000000 +0200
++++ hugin-0.5/src/hugin/po/pl.po	2005-05-15 22:18:34.191483096 +0200
 @@ -8,9 +8,9 @@
  "Project-Id-Version: hugin 0.5\n"
  "Report-Msgid-Bugs-To: pablo.dangelo@web.de\n"
- "POT-Creation-Date: 2005-05-12 06:25+0300\n"
+ "POT-Creation-Date: 2005-05-14 21:47+0300\n"
 -"PO-Revision-Date: 2005-04-02 12:45-0500\n"
-+"PO-Revision-Date: 2005-05-12 22:00+0200\n"
++"PO-Revision-Date: 2005-05-15 22:16+0200\n"
  "Last-Translator: Marek Januszewski <spec@webtech.pl>\n"
 -"Language-Team: Polish <pl@li.org>\n"
 +"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -65,13 +65,13 @@
  #, c-format
 @@ -623,12 +620,12 @@
  #: src/hugin/MainFrame.cpp:486 src/hugin/MainFrame.cpp:514
- #: src/hugin/MainFrame.cpp:533 src/hugin/PanoPanel.cpp:495
+ #: src/hugin/MainFrame.cpp:533
  msgid "No images - Nothing to do"
 -msgstr ""
 +msgstr "Brak zdjęć - nie ma nic do zrobienia"
  
  #: src/hugin/MainFrame.cpp:486 src/hugin/MainFrame.cpp:514
- #: src/hugin/MainFrame.cpp:533 src/hugin/PanoPanel.cpp:495
+ #: src/hugin/MainFrame.cpp:533
  msgid "Warning"
 -msgstr ""
 +msgstr "Uwaga"
@@ -90,7 +90,7 @@
 @@ -770,16 +767,15 @@
  msgstr "Nie wybrano narzędzia enblend"
  
- #: src/hugin/NonaStitcherPanel.cpp:334
+ #: src/hugin/NonaStitcherPanel.cpp:355
 -#, fuzzy
  msgid ""
  "Can not call enblend with a command line > 2000 characters.\n"
@@ -106,10 +106,10 @@
 +"Proszę użyć mniejszej liczby zdjęć lub skopiować je do folderu\n"
  "o krótszej nazwie ścieżki"
  
- #: src/hugin/NonaStitcherPanel.cpp:342
+ #: src/hugin/NonaStitcherPanel.cpp:363
 @@ -1169,24 +1165,23 @@
  
- #: src/hugin/PTStitcherPanel.cpp:429
+ #: src/hugin/PTStitcherPanel.cpp:444
  msgid "PTStitcher note"
 -msgstr "uwaga PTStitcher'a"
 +msgstr "uwaga PTStitchera"
