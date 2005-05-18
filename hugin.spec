@@ -2,18 +2,17 @@ Summary:	Toolchain to create panoramic images
 Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
-%define	bver	beta6
+%define	bver	rc1
 Release:	0.%{bver}.1
 # SIFT is patented in USA and may require license for commercial use
 License:	GPL, non-commercial SIFT license for some code
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
-# Source0-md5:	7bc8de545bce1043d10162ebbf81393c
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{bver}.tar.bz2
+# Source0-md5:	82fcd91f437b375438bee6f51352c777
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
 Patch2:		%{name}-break.patch
-Patch3:		%{name}-imgs.patch
-Patch4:		%{name}-am.patch
+Patch3:		%{name}-am.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -56,7 +55,6 @@ pakiety tak¿e zainstalowaæ.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
-%patch4 -p1
 
 sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
