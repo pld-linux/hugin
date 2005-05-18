@@ -15,13 +15,3 @@
  
  panosifter_SOURCES = panosifter.cpp
  panosifter_CFLAGS  = $(PNG_FLAGS) $(ZLIB_FLAGS)
---- hugin-0.5/configure.ac.orig	2005-03-09 06:48:30.000000000 +0100
-+++ hugin-0.5/configure.ac	2005-05-15 22:28:28.871078056 +0200
-@@ -230,7 +230,6 @@
- LIBS=""
- 
- AC_CONFIG_FILES([Makefile
--		 m4/Makefile
-                  src/Makefile
-                  src/Panorama/Makefile
-                  src/common/Makefile

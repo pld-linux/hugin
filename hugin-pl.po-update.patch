@@ -1,11 +1,11 @@
---- hugin-0.5/src/hugin/po/pl.po.orig	2005-05-14 20:47:46.000000000 +0200
-+++ hugin-0.5/src/hugin/po/pl.po	2005-05-15 22:18:34.191483096 +0200
+--- hugin-0.5/src/hugin/po/pl.po.orig	2005-05-17 16:20:06.000000000 +0200
++++ hugin-0.5/src/hugin/po/pl.po	2005-05-19 00:29:47.135806872 +0200
 @@ -8,9 +8,9 @@
  "Project-Id-Version: hugin 0.5\n"
  "Report-Msgid-Bugs-To: pablo.dangelo@web.de\n"
- "POT-Creation-Date: 2005-05-14 21:47+0300\n"
+ "POT-Creation-Date: 2005-05-17 17:20+0300\n"
 -"PO-Revision-Date: 2005-04-02 12:45-0500\n"
-+"PO-Revision-Date: 2005-05-15 22:16+0200\n"
++"PO-Revision-Date: 2005-05-19 00:24+0200\n"
  "Last-Translator: Marek Januszewski <spec@webtech.pl>\n"
 -"Language-Team: Polish <pl@li.org>\n"
 +"Language-Team: Polish <translation-team-pl@lists.sourceforge.net>\n"
@@ -15,36 +15,36 @@
 @@ -61,13 +61,12 @@
  msgstr "Nie wybrano autopano"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:201
+ #: src/hugin/AutoCtrlPointCreator.cpp:202
 -#, fuzzy
  msgid "Select autopano frontend script"
 -msgstr "Wybierz autopano-sift skrypt interfejsu"
 +msgstr "Wybierz skrypt interfejsu autopano"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:203
+ #: src/hugin/AutoCtrlPointCreator.cpp:204
  msgid "Shell Scripts (*.sh)|*.sh"
 -msgstr ""
 +msgstr "Skrypty powłoki (*.sh)|*.sh"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:248
+ #: src/hugin/AutoCtrlPointCreator.cpp:249
  #, c-format
 @@ -88,14 +87,12 @@
  "sift"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:288
+ #: src/hugin/AutoCtrlPointCreator.cpp:289
 -#, fuzzy
  msgid "Select autopano .Net executable."
 -msgstr "Wybierz typ autopano"
 +msgstr "Wybierz plik wykonywany .Net autopano"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:296
+ #: src/hugin/AutoCtrlPointCreator.cpp:297
 -#, fuzzy
  msgid "No autopano directory selected"
 -msgstr "Nie wybrano autopano"
 +msgstr "Nie wybrano katalogu autopano"
  
- #: src/hugin/AutoCtrlPointCreator.cpp:305
- #: src/hugin/AutoCtrlPointCreator.cpp:439
+ #: src/hugin/AutoCtrlPointCreator.cpp:306
+ #: src/hugin/AutoCtrlPointCreator.cpp:440
 @@ -384,7 +381,7 @@
  
  #: src/hugin/ImageCenter.cpp:80
@@ -63,31 +63,16 @@
  
  #: src/hugin/ImageOrientationPanel.cpp:132
  #, c-format
-@@ -623,12 +620,12 @@
- #: src/hugin/MainFrame.cpp:486 src/hugin/MainFrame.cpp:514
- #: src/hugin/MainFrame.cpp:533
- msgid "No images - Nothing to do"
--msgstr ""
-+msgstr "Brak zdjęć - nie ma nic do zrobienia"
+@@ -639,7 +636,7 @@
  
- #: src/hugin/MainFrame.cpp:486 src/hugin/MainFrame.cpp:514
- #: src/hugin/MainFrame.cpp:533
- msgid "Warning"
--msgstr ""
-+msgstr "Uwaga"
- 
- #: src/hugin/MainFrame.cpp:505
- #, c-format
-@@ -649,7 +646,7 @@
- 
- #: src/hugin/MainFrame.cpp:539
+ #: src/hugin/MainFrame.cpp:543
  msgid "PTStitcher files (*.txt)|*.txt"
 -msgstr "Pliki PTStitcher'a (*.txt)|*.txt"
 +msgstr "Pliki PTStitchera (*.txt)|*.txt"
  
- #: src/hugin/MainFrame.cpp:565
+ #: src/hugin/MainFrame.cpp:569
  msgid "Open project:   "
-@@ -770,16 +767,15 @@
+@@ -760,16 +757,15 @@
  msgstr "Nie wybrano narzędzia enblend"
  
  #: src/hugin/NonaStitcherPanel.cpp:355
@@ -106,8 +91,8 @@
 +"Proszę użyć mniejszej liczby zdjęć lub skopiować je do folderu\n"
  "o krótszej nazwie ścieżki"
  
- #: src/hugin/NonaStitcherPanel.cpp:363
-@@ -1169,24 +1165,23 @@
+ #: src/hugin/NonaStitcherPanel.cpp:365
+@@ -1159,24 +1155,23 @@
  
  #: src/hugin/PTStitcherPanel.cpp:444
  msgid "PTStitcher note"
@@ -136,7 +121,7 @@
  
  #: src/hugin/RunOptimizerFrame.cpp:176
  msgid "Stop"
-@@ -1235,7 +1230,7 @@
+@@ -1225,7 +1220,7 @@
  "Optymalizator zakończył pracę.\n"
  "Rezultaty:\n"
  " średnia odległość punktów kontrolnych: %f\n"
@@ -145,7 +130,7 @@
  " maximum: %f\n"
  "\n"
  "Zastosować zmiany?"
-@@ -1254,7 +1249,7 @@
+@@ -1244,7 +1239,7 @@
  
  #: src/hugin/RunStitcherFrame.cpp:158
  msgid "Could not obtain PTStitcher output"
@@ -154,7 +139,7 @@
  
  #: src/hugin/RunStitcherFrame.cpp:282
  msgid ""
-@@ -1292,21 +1287,22 @@
+@@ -1282,21 +1277,22 @@
  msgstr "Nie znaleziono zdjęcia"
  
  #: src/include/hugin/wxPanoCommand.h:203
@@ -183,7 +168,7 @@
  
  #: src/hugin/xrc/about.xrs:1 src/hugin/xrc/main_tool.xrs:31
  msgid "About Hugin"
-@@ -1479,7 +1475,7 @@
+@@ -1469,7 +1465,7 @@
  
  #: src/hugin/xrc/help.xrs:1
  msgid "Hugin Reference"
@@ -192,7 +177,7 @@
  
  #: src/hugin/xrc/help.xrs:2 src/hugin/xrc/image_center.xrs:3
  #: src/hugin/xrc/keyboard_help.xrs:2
-@@ -1718,7 +1714,7 @@
+@@ -1708,7 +1704,7 @@
  
  #: src/hugin/xrc/lens_panel.xrs:36
  msgid "Set crop and image center"
@@ -201,7 +186,7 @@
  
  #: src/hugin/xrc/lens_panel.xrs:37
  msgid "Camera and Lens Information"
-@@ -2063,7 +2059,7 @@
+@@ -2053,7 +2049,7 @@
  
  #: src/hugin/xrc/main_tool.xrs:33
  msgid "Display credits for the creators of Hugin"
@@ -210,7 +195,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:1 src/hugin/xrc/ptstitcher_panel.xrs:1
  msgid "Stitching Options"
-@@ -2083,7 +2079,7 @@
+@@ -2073,7 +2069,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:12
  msgid "Soft Blending (requires enblend, only TIFF output)"
@@ -219,7 +204,7 @@
  
  #: src/hugin/xrc/nona_panel.xrs:13
  msgid ""
-@@ -2167,7 +2163,7 @@
+@@ -2157,7 +2153,7 @@
  
  #: src/hugin/xrc/optimize_panel.xrs:11
  msgid "execute the PTOptimizer engine"
@@ -228,7 +213,7 @@
  
  #: src/hugin/xrc/optimize_panel.xrs:12
  msgid "Custom Optimization Variables"
-@@ -2257,7 +2253,7 @@
+@@ -2247,7 +2243,7 @@
  
  #: src/hugin/xrc/pano_panel.xrs:8
  msgid "into a layered Photoshop file"
@@ -237,7 +222,7 @@
  
  #: src/hugin/xrc/pano_panel.xrs:9
  msgid "as a Rectilinear"
-@@ -2489,7 +2485,7 @@
+@@ -2479,7 +2475,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:39
  msgid "requires restarting hugin"
@@ -246,7 +231,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:40
  msgid "Cursor Type"
-@@ -2517,11 +2513,11 @@
+@@ -2507,11 +2503,11 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:45
  msgid "leave empty for OS default"
@@ -260,7 +245,7 @@
  
  #: src/hugin/xrc/pref_dialog.xrs:48 src/hugin/xrc/pref_dialog.xrs:56
  msgid "Autopano"
-@@ -2653,7 +2649,7 @@
+@@ -2643,7 +2639,7 @@
  #: src/hugin/xrc/preview_frame.xrs:20 src/hugin/xrc/ptstitcher_panel.xrs:14
  #: src/hugin/xrc/ptstitcher_panel.xrs:24
  msgid "None"
@@ -269,7 +254,7 @@
  
  #: src/hugin/xrc/ptstitcher_panel.xrs:11
  msgid "approximation of values between source pixels"
-@@ -2778,15 +2774,3 @@
+@@ -2768,15 +2764,3 @@
  #: src/hugin/xrc/run_stitcher_frame.xrs:3
  msgid "Abort"
  msgstr "Anuluj"
