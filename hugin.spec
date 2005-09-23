@@ -2,17 +2,14 @@ Summary:	Toolchain to create panoramic images
 Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
-%define	bver	rc1
+%define	bver	rc2
 Release:	0.%{bver}.1
-# SIFT is patented in USA and may require license for commercial use
-License:	GPL, non-commercial SIFT license for some code
+License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{bver}.tar.bz2
-# Source0-md5:	82fcd91f437b375438bee6f51352c777
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{bver}.tar.bz2
+# Source0-md5:	632585f02c0ef34a6fda4ec7c231587d
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
-Patch2:		%{name}-break.patch
-Patch3:		%{name}-am.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -50,11 +47,9 @@ pakiet enblend do wyg³adzenia krawêdzi po ³±czeniu - wiêc warto te
 pakiety tak¿e zainstalowaæ.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-%{bver}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
@@ -86,12 +81,14 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS BUGS ChangeLog LICENCE_SIFT README TODO
+%doc AUTHORS BUGS ChangeLog LICENCE_JHEAD LICENCE_VIGRA NEWS README TODO
 %attr(755,root,root) %{_bindir}/autooptimiser
 %attr(755,root,root) %{_bindir}/hugin
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
-%attr(755,root,root) %{_bindir}/panosifter
-%attr(755,root,root) %{_bindir}/sift_keypoints
 %attr(755,root,root) %{_bindir}/zhang_undistort
 %{_datadir}/%{name}
+%{_datadir}/mime/packages/hugin.xml
+%{_desktopdir}/hugin.desktop
+%{_iconsdir}/gnome/*/mimetypes/*.png
+%{_pixmapsdir}/hugin.png
