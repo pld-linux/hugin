@@ -1,17 +1,5 @@
-Use nona as default stitcher.
 Use mono to run autopanog.exe.
 
---- hugin-0.5-rc2/src/hugin/PanoPanel.cpp.orig	2005-08-31 23:00:56.000000000 +0200
-+++ hugin-0.5-rc2/src/hugin/PanoPanel.cpp	2005-09-23 14:29:03.662786776 +0200
-@@ -124,7 +124,7 @@
-     pano->addObserver (this);
- 
-     // setup the stitcher
--    int t = wxConfigBase::Get()->Read(wxT("Stitcher/DefaultStitcher"),0l);
-+    int t = wxConfigBase::Get()->Read(wxT("Stitcher/DefaultStitcher"),1l);
- #ifdef NO_PTSTITCHER
-     // disable stitcher choice and select nona,
-     // since PTStitcher is not available on OSX
 --- hugin-0.5-beta4/src/include/hugin/config_defaults.h.orig	2005-03-07 21:09:29.000000000 +0100
 +++ hugin-0.5-beta4/src/include/hugin/config_defaults.h	2005-04-03 19:10:22.256760344 +0200
 @@ -95,7 +95,7 @@
