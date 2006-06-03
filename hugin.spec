@@ -2,13 +2,14 @@ Summary:	Toolchain to create panoramic images
 Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
 Version:	0.5
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
 # Source0-md5:	18b38f5d6744831567b7fabfedb643fd
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
+Patch2:		%{name}-gcc4.patch
 URL:		http://hugin.sf.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -49,6 +50,7 @@ pakiety tak¿e zainstalowaæ.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 sed -i -e 's,ac_boost_libdir=.*/lib.*,ac_boost_libdir=/usr/%{_lib},' m4/ax_check_boost.m4
 
@@ -71,6 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_datadir}/locale/{ca_ES,ca}
 
 # "hugin" and "nona_gui" domains
 %find_lang %{name} --all-name
