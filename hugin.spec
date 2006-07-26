@@ -10,7 +10,7 @@ Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
 Patch2:		%{name}-gcc4.patch
-URL:		http://hugin.sf.net/
+URL:		http://hugin.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	boost-any-devel
@@ -33,7 +33,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 With hugin you can assemble a mosaic of photographs into a complete
 immensive panorama, stitch any series of overlapping pictures and much
 more.
- 
+
 Note: Hugin can use autopano-sift package to match images and enblend
 package for soft blending, so you'll probably want to install them
 too.
