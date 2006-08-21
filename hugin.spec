@@ -1,12 +1,12 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
 Name:		hugin
-Version:	0.6
+Version:	0.6.1
 Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	a6ca2308a2ce78edd304f85cd2a06d58
+# Source0-md5:	46bc3136d42acbabab837128ff471507
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
 Patch2:		%{name}-asneeded.patch
@@ -17,6 +17,7 @@ BuildRequires:	boost-any-devel >= 1.31
 BuildRequires:	boost-ref-devel >= 1.31
 BuildRequires:	boost-test-devel >= 1.31
 BuildRequires:	boost-thread-devel >= 1.31
+BuildRequires:	boost-uBLAS-devel >= 1.31
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.3
 BuildRequires:	libjpeg-devel
