@@ -81,7 +81,8 @@ cp -f po/Makefile.in.in src/nona_gui/po
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	gnomemimeicondir=%{_iconsdir}/hicolor/48x48/mimetypes
 
 # "hugin" and "nona_gui" domains
 %find_lang %{name} --all-name
@@ -102,6 +103,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
-%{_iconsdir}/gnome/*/mimetypes/*.png
+%{_iconsdir}/hicolor/*/mimetypes/*.png
 %{_pixmapsdir}/hugin.png
 %{_mandir}/man1/fulla.1*
