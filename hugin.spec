@@ -1,6 +1,6 @@
 %define		_beta	beta1
 Summary:	Toolchain to create panoramic images
-Summary(pl):	Zestaw narzêdzi do tworzenia panoramicznych zdjêæ
+Summary(pl.UTF-8):   Zestaw narzÄ™dzi do tworzenia panoramicznych zdjÄ™Ä‡
 Name:		hugin
 Version:	0.7
 Release:	0.%{_beta}.1
@@ -44,13 +44,13 @@ Note: Hugin can use autopano-sift package to match images and enblend
 package for soft blending, so you'll probably want to install them
 too.
 
-%description -l pl
-Przy u¿yciu hugina mo¿na po³±czyæ wiele fotografii w kompletn±, du¿±
-panoramê, skleiæ dowolny ci±g nak³adaj±cych siê zdjêæ i wiele wiêcej.
+%description -l pl.UTF-8
+Przy uÅ¼yciu hugina moÅ¼na poÅ‚Ä…czyÄ‡ wiele fotografii w kompletnÄ…, duÅ¼Ä…
+panoramÄ™, skleiÄ‡ dowolny ciÄ…g nakÅ‚adajÄ…cych siÄ™ zdjÄ™Ä‡ i wiele wiÄ™cej.
 
-Hugin mo¿e u¿ywaæ pakietu autopano-sift do dopasowania zdjêæ oraz
-pakiet enblend do wyg³adzenia krawêdzi po ³±czeniu - wiêc warto te
-pakiety tak¿e zainstalowaæ.
+Hugin moÅ¼e uÅ¼ywaÄ‡ pakietu autopano-sift do dopasowania zdjÄ™Ä‡ oraz
+pakiet enblend do wygÅ‚adzenia krawÄ™dzi po Å‚Ä…czeniu - wiÄ™c warto te
+pakiety takÅ¼e zainstalowaÄ‡.
 
 %prep
 %setup -q -n %{name}-%{version}-%{_beta}
