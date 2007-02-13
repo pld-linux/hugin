@@ -1,6 +1,6 @@
 %define		_beta	beta1
 Summary:	Toolchain to create panoramic images
-Summary(pl.UTF-8):   Zestaw narzędzi do tworzenia panoramicznych zdjęć
+Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	0.7
 Release:	0.%{_beta}.1
