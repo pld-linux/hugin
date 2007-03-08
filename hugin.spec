@@ -1,4 +1,4 @@
-%define		_beta	beta1
+%define		_beta	beta4
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
@@ -6,8 +6,8 @@ Version:	0.7
 Release:	0.%{_beta}.1
 License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}-%{_beta}.tar.bz2
-# Source0-md5:	1db122330b5b42792808f9f4f85933d8
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{_beta}.tar.bz2
+# Source0-md5:	28b69d85ae06a22fe9514f7f77e6dddb
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-defaults.patch
 Patch2:		%{name}-asneeded.patch
@@ -53,7 +53,7 @@ pakiet enblend do wygładzenia krawędzi po łączeniu - więc warto te
 pakiety także zainstalować.
 
 %prep
-%setup -q -n %{name}-%{version}-%{_beta}
+%setup -q -n %{name}-%{version}_%{_beta}
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
