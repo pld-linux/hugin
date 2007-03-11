@@ -18,3 +18,13 @@
  
  EXTRA_DIST       = nona_gui_rc.rc nona_gui.vcproj
  
+--- hugin-0.7_beta4/src/Panorama/Makefile.am.orig	2007-03-11 21:41:11.000000000 +0000
++++ hugin-0.7_beta4/src/Panorama/Makefile.am	2007-03-11 21:43:21.000000000 +0000
+@@ -6,6 +6,7 @@
+ 
+ noinst_LTLIBRARIES = libpanorama.la
+ libpanorama_la_SOURCES = Panorama.cpp PanoramaMemento.cpp PanoImage.cpp PanoToolsInterface.cpp SpaceTransform.cpp PTOptimise.cpp ImageGraph.cpp Stitcher.cpp Stitcher1.cpp Stitcher2.cpp Stitcher3.cpp Stitcher4.cpp utils.cpp
++libpanorama_la_LIBADD = $(BOOST_THREAD_LIB)
+ 
+ EXTRA_DIST=Panorama.vcproj OptimizeOptions.cpp
+ noinst_HEADERS =
