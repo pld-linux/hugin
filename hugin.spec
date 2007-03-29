@@ -21,7 +21,7 @@ BuildRequires:	boost-bind-devel >= 1.31
 BuildRequires:	boost-thread-devel >= 1.31
 BuildRequires:	boost-uBLAS-devel >= 1.31
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2.0.3
+BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano12-devel >= 2.8.1
 BuildRequires:	libpng-devel
@@ -29,7 +29,7 @@ BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	libtool >= 2:1.5
 BuildRequires:	sed >= 4.0
-BuildRequires:	wxGTK2-devel >= 2.6.0
+BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
 BuildRequires:	zlib-devel
 Requires:	libpano12 >= 2.8.1
@@ -76,7 +76,7 @@ cp -f po/Makefile.in.in src/nona_gui/po
 %{__autoheader}
 %{__automake}
 %configure \
-	--with-wx-config=wx-gtk2-ansi-config
+	--with-wx-config=wx-gtk2-unicode-config
 %{__make}
 
 %install
