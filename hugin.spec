@@ -3,7 +3,7 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	0.7
-Release:	0.%{_beta}.1
+Release:	0.%{_beta}.2
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{_beta}.tar.bz2
