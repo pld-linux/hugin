@@ -1,9 +1,13 @@
+#
+# Conditional build:
+%bcond_with	pano13			# use libpano13 (default with libpano12)
+
 %define		_beta	beta4
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	0.7
-Release:	0.%{_beta}.2
+Release:	0.%{_beta}.2.1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{_beta}.tar.bz2
@@ -23,7 +27,8 @@ BuildRequires:	boost-uBLAS-devel >= 1.31
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpano12-devel >= 2.8.1
+%{!?with_pano13:BuildRequires:	libpano12-devel >= 2.8.1}
+%{?with_pano13:BuildRequires:	libpano13-devel}
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
@@ -32,7 +37,8 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
 BuildRequires:	zlib-devel
-Requires:	libpano12 >= 2.8.1
+%{!?with_pano13:Requires:	libpano12 >= 2.8.1}
+%{?with_pano13:Requires:	libpano13}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
