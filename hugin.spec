@@ -1,7 +1,7 @@
 #
 # Conditional build:
-%bcond_with	pano13			# use libpano13 (default with libpano12)
-
+%bcond_with	pano13			# use libpano13 instead of libpano12
+#
 %define		_beta	beta4
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
@@ -37,6 +37,7 @@ BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
 BuildRequires:	zlib-devel
+%{!?with_pano13:BuildConflicts:	libpano13-devel}
 %{!?with_pano13:Requires:	libpano12 >= 2.8.1}
 %{?with_pano13:Requires:	libpano13}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
