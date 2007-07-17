@@ -19,9 +19,10 @@ URL:		http://hugin.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
 BuildRequires:	boost-any-devel >= 1.31
+BuildRequires:	boost-bind-devel >= 1.31
+BuildRequires:	boost-graph-devel >= 1.31
 BuildRequires:	boost-ref-devel >= 1.31
 BuildRequires:	boost-test-devel >= 1.31
-BuildRequires:	boost-bind-devel >= 1.31
 BuildRequires:	boost-thread-devel >= 1.31
 BuildRequires:	boost-uBLAS-devel >= 1.31
 BuildRequires:	gettext-devel
