@@ -41,6 +41,7 @@ BuildRequires:	zlib-devel
 %{!?with_pano13:BuildConflicts:	libpano13-devel}
 %{!?with_pano13:Requires:	libpano12 >= 2.8.1}
 %{?with_pano13:Requires:	libpano13}
+Suggests:	autopano-sift
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
