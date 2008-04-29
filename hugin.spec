@@ -18,13 +18,7 @@ Patch2:		%{name}-asneeded.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	boost-any-devel >= 1.31
-BuildRequires:	boost-bind-devel >= 1.31
-BuildRequires:	boost-graph-devel >= 1.31
-BuildRequires:	boost-ref-devel >= 1.31
-BuildRequires:	boost-test-devel >= 1.31
-BuildRequires:	boost-thread-devel >= 1.31
-BuildRequires:	boost-uBLAS-devel >= 1.31
+BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
