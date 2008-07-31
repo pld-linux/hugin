@@ -25,6 +25,7 @@ BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
