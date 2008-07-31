@@ -72,7 +72,7 @@ cd build
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
 %if "%{_lib}" == "64"
-	-DLIB_PREFIX=64 \
+	-DLIB_SUFFIX=64 \
 %endif
 	-DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-gtk2-unicode-config
 
