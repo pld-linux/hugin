@@ -2,16 +2,17 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	0.7.0
-Release:	0.1
+%define	subver	rc5
+Release:	0.%{subver}.0.1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
-# Source0-md5:	927a46b603d6334853aa619c3bfb729f
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{subver}.tar.gz
+# Source0-md5:	cd99ce8985aec47b93e300c2be695680
 Patch0:		%{name}-pl.po-update.patch
+Patch1:		%{name}-asneeded.patch
+Patch2:		%{name}-cppflags.patch
 # obsolete
 #Patch1:		%{name}-defaults.patch
-# recheck (cmake doesn't get -as-needed at all so far)
-#Patch2:		%{name}-asneeded.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	boost-devel >= 1.35.0
@@ -56,8 +57,10 @@ pakiety także zainstalować.
 %prep
 %setup -q
 #UPDATEME %patch0 -p1
+%patch1 -p1
+%patch2 -p0
 
-sed -i -e 's/ca_ES/ca/;s/cs_CZ/cs/;' src/translations/cmake_install.cmake
+#sed -i -e 's/ca_ES/ca/;s/cs_CZ/cs/;' src/translations/cmake_install.cmake
 mv -f src/translations/{ca_ES,ca}.po
 mv -f src/translations/{cs_CZ,cs}.po
 
