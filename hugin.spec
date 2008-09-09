@@ -6,15 +6,15 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	0.7
-Release:	0.%{_beta}.4
+Version:	0.7.0
+Release:	0.rc5.0.1
 License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{_beta}.tar.bz2
-# Source0-md5:	28b69d85ae06a22fe9514f7f77e6dddb
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_rc5.tar.gz
+# Source0-md5:	cd99ce8985aec47b93e300c2be695680
 Patch0:		%{name}-pl.po-update.patch
-Patch1:		%{name}-defaults.patch
-Patch2:		%{name}-asneeded.patch
+Patch1:		%{name}-asneeded.patch
+Patch2:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
@@ -57,31 +57,28 @@ pakiet enblend do wygładzenia krawędzi po łączeniu - więc warto te
 pakiety także zainstalować.
 
 %prep
-%setup -q -n %{name}-%{version}_%{_beta}
-%patch0 -p1
+%setup -q 
+# %%patch0 -p1
 %patch1 -p1
-%patch2 -p1
+%patch2
 
-sed -i -e 's,/lib",/%{_lib}",' m4/ax_boost.m4
-sed -i -e 's/ca_ES/ca/;s/cs_CZ/cs/;' src/hugin/po/LINGUAS
-mv -f src/hugin/po/{ca_ES,ca}.po
-mv -f src/hugin/po/{cs_CZ,cs}.po
+#sed -i -e 's/ca_ES/ca/;s/cs_CZ/cs/;' src/hugin/po/LINGUAS
+mv -f src/translations/{ca_ES,ca}.po
+mv -f src/translations/{cs_CZ,cs}.po
 # missing in LINGUAS
-echo 'cs'>> src/nona_gui/po/LINGUAS
-mv -f src/nona_gui/po/{cs_CZ,cs}.po
+# echo 'cs'>> src/nona_gui/po/LINGUAS
 
 %build
-%{__gettextize}
-cp -f po/Makefile.in.in src/hugin/po
-cp -f po/Makefile.in.in src/nona_gui/po
-%{__libtoolize}
-%{__aclocal} -I m4
-%{__autoconf}
-%{__autoheader}
-%{__automake}
-%configure \
-	--with-wx-config=wx-gtk2-unicode-config
-%{__make}
+install -d build
+cd build
+
+export CPPFLAGS="%{rpmcppflags}"  
+%cmake \
+	-DCMAKE_BUILD_TYPE:STRING="None" \
+	-DCMAKE_INSTALL_PREFIX:PATH=%{_prefix} \
+	-DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-gtk2-ansi-config \
+	..
+%{__make} VERBOSE=1
 
 %install
 rm -rf $RPM_BUILD_ROOT
