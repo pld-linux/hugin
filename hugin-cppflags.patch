@@ -1,0 +1,10 @@
+--- CMakeLists.txt~	2008-09-03 21:59:26.000000000 +0100
++++ CMakeLists.txt	2008-09-09 20:00:46.000000000 +0100
+@@ -9,6 +9,7 @@
+ 
+ ##  global setup
+ project(hugin)
++ADD_DEFINITIONS($ENV{CPPFLAGS})
+ 
+ # version
+ set(V_MAJOR 0)
