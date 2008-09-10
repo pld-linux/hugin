@@ -11,8 +11,6 @@ Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}_%{subver}.tar.gz
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-asneeded.patch
 Patch2:		%{name}-cppflags.patch
-# obsolete
-#Patch1:		%{name}-defaults.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	boost-devel >= 1.35.0
@@ -56,11 +54,10 @@ pakiety także zainstalować.
 
 %prep
 %setup -q
-#UPDATEME %patch0 -p1
+%patch0 -p1
 %patch1 -p1
 %patch2 -p0
 
-#sed -i -e 's/ca_ES/ca/;s/cs_CZ/cs/;' src/translations/cmake_install.cmake
 mv -f src/translations/{ca_ES,ca}.po
 mv -f src/translations/{cs_CZ,cs}.po
 
