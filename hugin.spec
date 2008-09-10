@@ -115,6 +115,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
+%attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
 %attr(755,root,root) %{_bindir}/vig_optimize
 %attr(755,root,root) %{_libdir}/libhuginANN.so.*.*
