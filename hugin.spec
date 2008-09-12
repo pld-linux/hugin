@@ -30,7 +30,7 @@ BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	zip
 BuildRequires:	zlib-devel
 Suggests:	autopano-sift-C >= 2.5.0
-Suggests:	enblend >= 3.1
+Suggests:	enblend-enfuse >= 3.1
 # exiftool program
 Suggests:	perl-Image-ExifTool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
