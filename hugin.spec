@@ -1,18 +1,19 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	0.7.0
-Release:	5
+Version:	2009.2.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
-# Source0-md5:	6efbfc72ceba028ca3dff3c23806a7f3
+# Source0-md5:	856fa8016bc990874a71a19cc162f6be
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-asneeded.patch
 Patch2:		%{name}-cppflags.patch
+Patch3:		%{name}-boost-1.40-fix.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
-BuildRequires:	boost-devel >= 1.35.0
+BuildRequires:	boost-devel >= 1.40.0
 BuildRequires:	cmake >= 2.4
 BuildRequires:	exiv2-devel
 BuildRequires:	gettext-devel
@@ -26,6 +27,7 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
+BuildRequires:	wxGTK2-unicode-gl-devel >= 2.6.0
 BuildRequires:	zip
 BuildRequires:	zlib-devel
 Suggests:	autopano-sift-C >= 2.5.0
@@ -53,9 +55,10 @@ pakiety także zainstalować.
 
 %prep
 %setup -q
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p1
 %patch2 -p0
+%patch3 -p1
 
 mv -f src/translations/{ca_ES,ca}.po
 mv -f src/translations/{cs_CZ,cs}.po
@@ -96,10 +99,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog LICENCE_JHEAD LICENCE_VIGRA README TODO
+%doc AUTHORS ChangeLog LICENCE_VIGRA README TODO
 %lang(ja) %doc README_JP
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
+%attr(755,root,root) %{_bindir}/autopano-noop.sh
+%attr(755,root,root) %{_bindir}/celeste_standalone
 %attr(755,root,root) %{_bindir}/fulla
 %attr(755,root,root) %{_bindir}/hugin
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
@@ -107,17 +112,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
+%attr(755,root,root) %{_bindir}/PTBatcher
+%attr(755,root,root) %{_bindir}/PTBatcherGUI
 %attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
 %attr(755,root,root) %{_bindir}/vig_optimize
+%attr(755,root,root) %{_libdir}/libceleste.so*
 %attr(755,root,root) %{_libdir}/libhuginANN.so.*.*
 %attr(755,root,root) %{_libdir}/libhuginbase.so.*.*
-%attr(755,root,root) %{_libdir}/libhuginjhead.so.*.*
 %attr(755,root,root) %{_libdir}/libhuginvigraimpex.so.*.*
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
-%{_desktopdir}/hugin_stitch_project.desktop
+%{_desktopdir}/PTBatcherGUI.desktop
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
 %{_pixmapsdir}/hugin.png
-%{_mandir}/man1/fulla.1*
+%{_mandir}/man1/*
