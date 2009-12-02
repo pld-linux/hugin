@@ -13,10 +13,12 @@ Patch2:		%{name}-cppflags.patch
 Patch3:		%{name}-boost-1.40-fix.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
+BuildRequires:	OpenGL-glut-devel
 BuildRequires:	boost-devel >= 1.40.0
 BuildRequires:	cmake >= 2.4
 BuildRequires:	exiv2-devel
 BuildRequires:	gettext-devel
+BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano13-devel >= 2.9.12
