@@ -1,16 +1,16 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2009.2.0
-Release:	2
+Version:	2009.4.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
-# Source0-md5:	856fa8016bc990874a71a19cc162f6be
+# Source0-md5:	ed197d35213a46c77489f512cb8ff191
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-asneeded.patch
 Patch2:		%{name}-cppflags.patch
-Patch3:		%{name}-boost-1.40-fix.patch
+Patch3:		%{name}-libpng.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -106,7 +106,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
 %attr(755,root,root) %{_bindir}/autopano-noop.sh
+%attr(755,root,root) %{_bindir}/calibrate_lens
 %attr(755,root,root) %{_bindir}/celeste_standalone
+%attr(755,root,root) %{_bindir}/cpclean
 %attr(755,root,root) %{_bindir}/fulla
 %attr(755,root,root) %{_bindir}/hugin
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
