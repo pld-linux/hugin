@@ -30,7 +30,6 @@ BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
 BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
 BuildRequires:	wxGTK2-unicode-gl-devel >= 2.6.0
-BuildRequires:	zip
 BuildRequires:	zlib-devel
 Suggests:	autopano-sift-C >= 2.5.0
 Suggests:	enblend-enfuse >= 3.1
