@@ -1,16 +1,14 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2010.0.0
+Version:	2010.2.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
-# Source0-md5:	0cd0b78e0d866023e3b6645e5010876f
+# Source0-md5:	be94c0454924ff5b7dbea4736395f7b1
 Patch0:		%{name}-pl.po-update.patch
-Patch1:		%{name}-asneeded.patch
-Patch2:		%{name}-cppflags.patch
-Patch3:		%{name}-libpng.patch
+Patch1:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -21,15 +19,15 @@ BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpano13-devel >= 2.9.12
+BuildRequires:	libpano13-devel >= 2.9.17
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
-BuildRequires:	wxGTK2-unicode-devel >= 2.6.0
-BuildRequires:	wxGTK2-unicode-gl-devel >= 2.6.0
+BuildRequires:	wxGTK2-unicode-devel >= 2.7.0
+BuildRequires:	wxGTK2-unicode-gl-devel >= 2.7.0
 BuildRequires:	zlib-devel
 Suggests:	autopano-sift-C >= 2.5.0
 Suggests:	enblend-enfuse >= 3.1
@@ -56,10 +54,8 @@ pakiety także zainstalować.
 
 %prep
 %setup -q
-#%patch0 -p1
-%patch1 -p1
-%patch2 -p0
-%patch3 -p1
+%patch0 -p1
+%patch1 -p0
 
 mv -f src/translations/{ca_ES,ca}.po
 mv -f src/translations/{cs_CZ,cs}.po
@@ -108,6 +104,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/calibrate_lens
 %attr(755,root,root) %{_bindir}/celeste_standalone
 %attr(755,root,root) %{_bindir}/cpclean
+%attr(755,root,root) %{_bindir}/deghosting_mask
 %attr(755,root,root) %{_bindir}/fulla
 %attr(755,root,root) %{_bindir}/hugin
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
@@ -117,12 +114,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nona_gui
 %attr(755,root,root) %{_bindir}/PTBatcher
 %attr(755,root,root) %{_bindir}/PTBatcherGUI
+%attr(755,root,root) %{_bindir}/pano_modify
+%attr(755,root,root) %{_bindir}/pano_trafo
+%attr(755,root,root) %{_bindir}/pto_merge
 %attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
 %attr(755,root,root) %{_bindir}/vig_optimize
 %attr(755,root,root) %{_libdir}/libceleste.so*
 %attr(755,root,root) %{_libdir}/libhuginANN.so.*.*
 %attr(755,root,root) %{_libdir}/libhuginbase.so.*.*
+%attr(755,root,root) %{_libdir}/libhuginbasewx.so.*.*
 %attr(755,root,root) %{_libdir}/libhuginvigraimpex.so.*.*
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/hugin.xml
