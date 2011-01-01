@@ -1,12 +1,12 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2010.2.0
+Version:	2010.4.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.gz
-# Source0-md5:	be94c0454924ff5b7dbea4736395f7b1
+Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
+# Source0-md5:	bfd716655461987312b2f2f00c90dcc5
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
@@ -83,9 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 # cmake is so great there is no way to pass proper path
 mv $RPM_BUILD_ROOT%{_iconsdir}/{gnome,hicolor}
 
-# not needed
-rm $RPM_BUILD_ROOT%{_libdir}/libhugin*.so
-
 %find_lang %{name}
 
 %clean
@@ -103,12 +100,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/autopano-noop.sh
 %attr(755,root,root) %{_bindir}/calibrate_lens
 %attr(755,root,root) %{_bindir}/celeste_standalone
+%attr(755,root,root) %{_bindir}/checkpto
 %attr(755,root,root) %{_bindir}/cpclean
+%attr(755,root,root) %{_bindir}/cpfind
 %attr(755,root,root) %{_bindir}/deghosting_mask
 %attr(755,root,root) %{_bindir}/fulla
 %attr(755,root,root) %{_bindir}/hugin
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
+%attr(755,root,root) %{_bindir}/icpfind
 %attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
@@ -120,15 +120,19 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
 %attr(755,root,root) %{_bindir}/vig_optimize
-%attr(755,root,root) %{_libdir}/libceleste.so*
-%attr(755,root,root) %{_libdir}/libhuginANN.so.*.*
-%attr(755,root,root) %{_libdir}/libhuginbase.so.*.*
-%attr(755,root,root) %{_libdir}/libhuginbasewx.so.*.*
-%attr(755,root,root) %{_libdir}/libhuginvigraimpex.so.*.*
+%dir %{_libdir}/hugin
+%attr(755,root,root) %{_libdir}/hugin/libceleste.so*
+%attr(755,root,root) %{_libdir}/hugin/libhuginANN.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libhuginvigraimpex.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libmakefilelib.so.*.*
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
 %{_desktopdir}/PTBatcherGUI.desktop
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
 %{_pixmapsdir}/hugin.png
-%{_mandir}/man1/*
+%{_pixmapsdir}/ptbatcher.png
