@@ -23,6 +23,7 @@ BuildRequires:	libpano13-devel >= 2.9.17
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
@@ -95,6 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog LICENCE_VIGRA README TODO
 %lang(ja) %doc README_JP
+%attr(755,root,root) %{_bindir}/PTBatcher
+%attr(755,root,root) %{_bindir}/PTBatcherGUI
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
 %attr(755,root,root) %{_bindir}/autopano-noop.sh
@@ -112,8 +115,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
-%attr(755,root,root) %{_bindir}/PTBatcher
-%attr(755,root,root) %{_bindir}/PTBatcherGUI
 %attr(755,root,root) %{_bindir}/pano_modify
 %attr(755,root,root) %{_bindir}/pano_trafo
 %attr(755,root,root) %{_bindir}/pto_merge
@@ -121,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/tca_correct
 %attr(755,root,root) %{_bindir}/vig_optimize
 %dir %{_libdir}/hugin
-%attr(755,root,root) %{_libdir}/hugin/libceleste.so*
+%attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginANN.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
@@ -136,3 +137,25 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
 %{_pixmapsdir}/hugin.png
 %{_pixmapsdir}/ptbatcher.png
+%{_mandir}/man1/PTBatcherGUI.1*
+%{_mandir}/man1/align_image_stack.1*
+%{_mandir}/man1/autooptimiser.1*
+%{_mandir}/man1/calibrate_lens.1*
+%{_mandir}/man1/celeste_standalone.1*
+%{_mandir}/man1/checkpto.1*
+%{_mandir}/man1/cpclean.1*
+%{_mandir}/man1/cpfind.1*
+%{_mandir}/man1/deghosting_mask.1*
+%{_mandir}/man1/fulla.1*
+%{_mandir}/man1/hugin.1*
+%{_mandir}/man1/hugin_hdrmerge.1*
+%{_mandir}/man1/hugin_stitch_project.1*
+%{_mandir}/man1/icpfind.1*
+%{_mandir}/man1/nona.1*
+%{_mandir}/man1/nona_gui.1*
+%{_mandir}/man1/pano_modify.1*
+%{_mandir}/man1/pano_trafo.1*
+%{_mandir}/man1/pto2mk.1*
+%{_mandir}/man1/pto_merge.1*
+%{_mandir}/man1/tca_correct.1*
+%{_mandir}/man1/vig_optimize.1*
