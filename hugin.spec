@@ -1,25 +1,25 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2010.4.0
+Version:	2011.0.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	http://dl.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	bfd716655461987312b2f2f00c90dcc5
+Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
+# Source0-md5:	ac8a129b4c3021233df6d9368c8164cf
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	boost-devel >= 1.40.0
-BuildRequires:	cmake >= 2.4
+BuildRequires:	cmake >= 2.8
 BuildRequires:	exiv2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpano13-devel >= 2.9.17
+BuildRequires:	libpano13-devel >= 2.9.18
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
@@ -71,7 +71,7 @@ cd build
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
-	-DwxWidgets_CONFIG_EXECUTABLE=/usr/bin/wx-gtk2-unicode-config
+	-DwxWidgets_CONFIG_EXECUTABLE=%{_bindir}/wx-gtk2-unicode-config
 
 %{__make}
 
@@ -123,6 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/vig_optimize
 %dir %{_libdir}/hugin
 %attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libflann_cpp.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginANN.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
