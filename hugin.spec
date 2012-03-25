@@ -1,12 +1,12 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2011.0.0
-Release:	2
+Version:	2011.4.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	ac8a129b4c3021233df6d9368c8164cf
+# Source0-md5:	3e4866dbbc7974972604aa18580eae0e
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
@@ -27,6 +27,7 @@ BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
 BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
+BuildRequires:	tclap
 BuildRequires:	wxGTK2-unicode-devel >= 2.7.0
 BuildRequires:	wxGTK2-unicode-gl-devel >= 2.7.0
 BuildRequires:	zlib-devel
@@ -101,7 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
 %attr(755,root,root) %{_bindir}/autopano-noop.sh
-%attr(755,root,root) %{_bindir}/calibrate_lens
+%attr(755,root,root) %{_bindir}/calibrate_lens_gui
 %attr(755,root,root) %{_bindir}/celeste_standalone
 %attr(755,root,root) %{_bindir}/checkpto
 %attr(755,root,root) %{_bindir}/cpclean
@@ -112,6 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
 %attr(755,root,root) %{_bindir}/icpfind
+%attr(755,root,root) %{_bindir}/linefind
 %attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
 %attr(755,root,root) %{_bindir}/nona_gui
@@ -124,9 +126,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/hugin
 %attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libflann_cpp.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhuginANN.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libhuginlines.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginvigraimpex.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
@@ -135,13 +137,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
 %{_desktopdir}/PTBatcherGUI.desktop
+%{_desktopdir}/calibrate_lens_gui.desktop
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
 %{_pixmapsdir}/hugin.png
 %{_pixmapsdir}/ptbatcher.png
+%{_mandir}/man1/PTBatcher.1*
 %{_mandir}/man1/PTBatcherGUI.1*
 %{_mandir}/man1/align_image_stack.1*
 %{_mandir}/man1/autooptimiser.1*
-%{_mandir}/man1/calibrate_lens.1*
+%{_mandir}/man1/autopano-noop.sh.1*
+%{_mandir}/man1/calibrate_lens_gui.1*
 %{_mandir}/man1/celeste_standalone.1*
 %{_mandir}/man1/checkpto.1*
 %{_mandir}/man1/cpclean.1*
@@ -152,6 +157,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/hugin_hdrmerge.1*
 %{_mandir}/man1/hugin_stitch_project.1*
 %{_mandir}/man1/icpfind.1*
+%{_mandir}/man1/linefind.1*
+%{_mandir}/man1/matchpoint.1*
 %{_mandir}/man1/nona.1*
 %{_mandir}/man1/nona_gui.1*
 %{_mandir}/man1/pano_modify.1*
