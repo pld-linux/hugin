@@ -1,12 +1,12 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2011.4.0
+Version:	2012.0.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	3e4866dbbc7974972604aa18580eae0e
+# Source0-md5:	6a4fb2585eb3539ba6769cf4557f6e88
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
 URL:		http://hugin.sourceforge.net/
@@ -18,6 +18,7 @@ BuildRequires:	exiv2-devel
 BuildRequires:	gettext-devel
 BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
+BuildRequires:	lensfun-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano13-devel >= 2.9.18
 BuildRequires:	libpng-devel
@@ -119,6 +120,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/nona_gui
 %attr(755,root,root) %{_bindir}/pano_modify
 %attr(755,root,root) %{_bindir}/pano_trafo
+%attr(755,root,root) %{_bindir}/pto_gen
 %attr(755,root,root) %{_bindir}/pto_merge
 %attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
@@ -133,9 +135,14 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libmakefilelib.so.*.*
+%attr(755,root,root) %{_libdir}/hugin/libhugin_python_interface.so.*.*
+%{py_sitedir}/_hsi.so
+%{py_sitedir}/hpi.py
+%{py_sitedir}/hsi.py
 %{_datadir}/%{name}
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
+%{_desktopdir}/pto_gen.desktop
 %{_desktopdir}/PTBatcherGUI.desktop
 %{_desktopdir}/calibrate_lens_gui.desktop
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
@@ -164,6 +171,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pano_modify.1*
 %{_mandir}/man1/pano_trafo.1*
 %{_mandir}/man1/pto2mk.1*
+%{_mandir}/man1/pto_gen.1*
 %{_mandir}/man1/pto_merge.1*
 %{_mandir}/man1/tca_correct.1*
 %{_mandir}/man1/vig_optimize.1*

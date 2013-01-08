@@ -1,5 +1,5 @@
---- hugin-2010.2.0/src/translations/pl.po.orig	2010-09-29 00:06:43.000000000 +0200
-+++ hugin-2010.2.0/src/translations/pl.po	2010-10-12 07:27:14.000000000 +0200
+--- hugin-2012.0.0/src/translations/pl.po.orig	2012-08-10 09:50:23.000000000 +0300
++++ hugin-2012.0.0/src/translations/pl.po	2013-01-08 13:56:11.121274030 +0200
 @@ -5,7 +5,7 @@
  #
  # Marek Januszewski <spec@webtech.pl>, 2004.
@@ -17,34 +17,34 @@
  
  #: hugin1/base_wx/huginConfig.cpp:47 hugin1/base_wx/huginConfig.cpp:82
  #, c-format
-@@ -214,7 +213,7 @@
+@@ -609,7 +608,7 @@
  
- #: hugin1/hugin/AssistantPanel.cpp:238
- msgid "Please load images by pressing on the Load images button."
+ #: hugin1/hugin/AssistantPanel.cpp:224
+ msgid "Please load images by pressing on the \"Load images\" button."
 -msgstr "Proszę wczytaj fotografie - naciśnij przycisk \"Wczytaj zdjęcia\"."
-+msgstr "Proszę wczytać fotografie - naciśnąć przycisk \"Wczytaj zdjęcia\"."
++msgstr "Proszę wczytać fotografie - naciśnij przycisk \"Wczytaj zdjęcia\"."
  
- #: hugin1/hugin/AssistantPanel.cpp:268
- #, c-format
-@@ -275,7 +274,7 @@
- #: hugin1/hugin/AssistantPanel.cpp:334
+ #: hugin1/hugin/AssistantPanel.cpp:257
+ #, fuzzy, c-format
+@@ -670,7 +669,7 @@
+ #: hugin1/hugin/AssistantPanel.cpp:326
  #, c-format
  msgid "Mean error after optimization: %.1f pixel, max: %.1f\n"
 -msgstr "Błąd uśredniania po optymalizacji: %.1f piksel, maksymalnie: %.1f\n"
 +msgstr "Średni błąd po optymalizacji: %.1f piksel, maksymalnie: %.1f\n"
  
- #: hugin1/hugin/AssistantPanel.cpp:342
- msgid ""
-@@ -297,7 +296,7 @@
+ #: hugin1/hugin/AssistantPanel.cpp:334
+ #, fuzzy
+@@ -693,7 +692,7 @@
  "Please add more images."
  msgstr ""
  "Wymagane są co najmniej dwa zdjęcia.\n"
 -"Proszę dodaj więcej zdjęć."
 +"Proszę dodać więcej zdjęć."
  
- #: hugin1/hugin/AssistantPanel.cpp:396
- msgid "Aligning images"
-@@ -2880,7 +2879,7 @@
+ #: hugin1/hugin/AssistantPanel.cpp:408
+ #, fuzzy
+@@ -3824,7 +3823,7 @@
  msgstr ""
  "poniższe parametry zostaną zastąpione przed uruchomieniem:\n"
  "%o  -- plik projektu (0.oto zostanie dodane jeśli użyjesz Autopano)\n"
@@ -53,21 +53,21 @@
  "%v  -- HFOV (poziome pole widzenia) pierwszego zdjęcia\n"
  "%f  -- rzut pierwszego zdjęcia (0-4, tak jak w panotools)\n"
  "%i  -- pliki zdjęć\n"
-@@ -4047,7 +4046,7 @@
+@@ -5260,7 +5259,7 @@
  
- #: translations/xrc.cpp:453 translations/xrc.cpp:640 xrc.cpp:453 xrc.cpp:640
+ #: translations/xrc.cpp:592 translations/xrc.cpp:817 xrc.cpp:592 xrc.cpp:817
  msgid "Poly3 (Bicubic)"
 -msgstr "Poly3 (Bicubic)"
 +msgstr "Poly3 (Bikubiczny)"
  
- #: translations/xrc.cpp:454 translations/xrc.cpp:641 xrc.cpp:454 xrc.cpp:641
+ #: translations/xrc.cpp:593 translations/xrc.cpp:818 xrc.cpp:593 xrc.cpp:818
  msgid "Spline 16"
-@@ -5039,7 +5038,7 @@
- "tab."
+@@ -6551,7 +6550,7 @@
+ "control points tab."
  msgstr ""
  "Czasami Autopano nie może znaleźć połączeń pomiędzy wszystkimi zdjęciami. W "
 -"tym wypadku punkty kontrolne muszą być utworzone ręcznie, używając zakładki "
 +"tym wypadku punkty kontrolne muszą być utworzone ręcznie, przy użyciu zakładki "
  "Punkty kontrolne."
  
- #: hugin1/hugin/xrc/data/tips.txt:8
+ #: hugin1/hugin/xrc/data/tips.txt:12
