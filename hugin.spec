@@ -39,7 +39,6 @@ BuildRequires:	zlib-devel
 Requires:	libpano13 >= 2.9.18
 Requires:	wxGTK2-unicode >= 2.8.10
 Requires:	wxGTK2-unicode-gl >= 2.8.10
-Suggests:	autopano-sift-C >= 2.5.0
 Suggests:	enblend-enfuse >= 3.1
 # exiftool program
 Suggests:	perl-Image-ExifTool
@@ -50,17 +49,15 @@ With hugin you can assemble a mosaic of photographs into a complete
 immensive panorama, stitch any series of overlapping pictures and much
 more.
 
-Note: Hugin can use autopano-sift-C package to match images and
-enblend package for soft blending, so you'll probably want to install
-them too.
+Note: Hugin can use enblend and enfuse for soft blending/fusing, so
+you'll probably to install enblend-enfuse package too.
 
 %description -l pl.UTF-8
 Przy użyciu hugina można połączyć wiele fotografii w kompletną, dużą
 panoramę, skleić dowolny ciąg nakładających się zdjęć i wiele więcej.
 
-Hugin może używać pakietu autopano-sift-C do dopasowania zdjęć oraz
-pakiet enblend do wygładzenia krawędzi po łączeniu - więc warto te
-pakiety także zainstalować.
+Hugin może używać programów enblend i enfuse do wygładzania krawędzi
+i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
