@@ -22,7 +22,7 @@ BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	lensfun-devel
 BuildRequires:	libjpeg-devel
-BuildRequires:	libpano13-devel >= 2.9.18
+BuildRequires:	libpano13-devel >= 2.9.19
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
@@ -36,7 +36,7 @@ BuildRequires:	tclap
 BuildRequires:	wxGTK2-unicode-devel >= 2.8.10
 BuildRequires:	wxGTK2-unicode-gl-devel >= 2.8.10
 BuildRequires:	zlib-devel
-Requires:	libpano13 >= 2.9.18
+Requires:	libpano13 >= 2.9.19
 Requires:	wxGTK2-unicode >= 2.8.10
 Requires:	wxGTK2-unicode-gl >= 2.8.10
 Suggests:	enblend-enfuse >= 3.1
