@@ -9,6 +9,7 @@ Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
 # Source0-md5:	711784c27bdb743ddc45dc2c448ac87c
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
+Patch2:		%{name}-boost.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -26,6 +27,7 @@ BuildRequires:	libpano13-devel >= 2.9.19
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtiff-devel
+BuildRequires:	perl-Image-ExifTool
 BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
 BuildRequires:	python-devel
@@ -63,6 +65,7 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 %setup -q
 #%patch0 -p1
 %patch1 -p0
+%patch2 -p1
 
 mv -f src/translations/{cs_CZ,cs}.po
 
@@ -106,11 +109,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog LICENCE_VIGRA README TODO src/celeste/LICENCE_{GABOR,LIBSVM}
 %lang(ja) %doc README_JP
-%attr(755,root,root) %{_bindir}/PTBatcher
 %attr(755,root,root) %{_bindir}/PTBatcherGUI
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
-%attr(755,root,root) %{_bindir}/autopano-noop.sh
 %attr(755,root,root) %{_bindir}/calibrate_lens_gui
 %attr(755,root,root) %{_bindir}/celeste_standalone
 %attr(755,root,root) %{_bindir}/checkpto
@@ -124,14 +125,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
 %attr(755,root,root) %{_bindir}/icpfind
 %attr(755,root,root) %{_bindir}/linefind
-%attr(755,root,root) %{_bindir}/matchpoint
 %attr(755,root,root) %{_bindir}/nona
-%attr(755,root,root) %{_bindir}/nona_gui
 %attr(755,root,root) %{_bindir}/pano_modify
 %attr(755,root,root) %{_bindir}/pano_trafo
 %attr(755,root,root) %{_bindir}/pto_gen
 %attr(755,root,root) %{_bindir}/pto_lensstack
+%attr(755,root,root) %{_bindir}/pto_mask
 %attr(755,root,root) %{_bindir}/pto_merge
+%attr(755,root,root) %{_bindir}/pto_move
+%attr(755,root,root) %{_bindir}/pto_template
 %attr(755,root,root) %{_bindir}/pto_var
 %attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
@@ -158,11 +160,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
 %{_pixmapsdir}/hugin.png
 %{_pixmapsdir}/ptbatcher.png
-%{_mandir}/man1/PTBatcher.1*
 %{_mandir}/man1/PTBatcherGUI.1*
 %{_mandir}/man1/align_image_stack.1*
 %{_mandir}/man1/autooptimiser.1*
-%{_mandir}/man1/autopano-noop.sh.1*
 %{_mandir}/man1/calibrate_lens_gui.1*
 %{_mandir}/man1/celeste_standalone.1*
 %{_mandir}/man1/checkpto.1*
@@ -176,15 +176,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/hugin_stitch_project.1*
 %{_mandir}/man1/icpfind.1*
 %{_mandir}/man1/linefind.1*
-%{_mandir}/man1/matchpoint.1*
 %{_mandir}/man1/nona.1*
-%{_mandir}/man1/nona_gui.1*
 %{_mandir}/man1/pano_modify.1*
 %{_mandir}/man1/pano_trafo.1*
 %{_mandir}/man1/pto2mk.1*
 %{_mandir}/man1/pto_gen.1*
 %{_mandir}/man1/pto_lensstack.1*
 %{_mandir}/man1/pto_merge.1*
+%{_mandir}/man1/pto_mask.1*
+%{_mandir}/man1/pto_move.1*
+%{_mandir}/man1/pto_template.1*
 %{_mandir}/man1/pto_var.1*
 %{_mandir}/man1/tca_correct.1*
 %{_mandir}/man1/vig_optimize.1*
