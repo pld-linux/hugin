@@ -18,7 +18,7 @@ BuildRequires:	boost-devel >= 1.41.0
 BuildRequires:	cmake >= 2.8
 BuildRequires:	exiv2-devel
 BuildRequires:	flann-devel
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
 BuildRequires:	lensfun-devel
