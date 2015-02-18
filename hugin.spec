@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
 Patch2:		%{name}-boost.patch
+Patch3:		boost-1.57.0.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -66,6 +67,7 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 #%patch0 -p1
 %patch1 -p0
 %patch2 -p1
+%patch3 -p1
 
 mv -f src/translations/{cs_CZ,cs}.po
 
