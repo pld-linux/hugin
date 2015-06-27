@@ -1,0 +1,10 @@
+--- hugin-2014.0.0/src/hugin_base/hugin_utils/platform.cpp~	2014-10-08 20:19:19.000000000 +0200
++++ hugin-2014.0.0/src/hugin_base/hugin_utils/platform.cpp	2015-06-27 11:36:28.945482042 +0200
+@@ -31,7 +31,6 @@
+ #include <unistd.h>
+ #else
+ #include <unistd.h>
+-#include <sys/sysctl.h>
+ #endif
+ 
+ namespace hugin_utils {
