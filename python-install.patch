@@ -1,0 +1,11 @@
+--- hugin-2014.0.0/src/hugin_script_interface/CMakeLists.txt~	2014-10-08 20:19:19.000000000 +0200
++++ hugin-2014.0.0/src/hugin_script_interface/CMakeLists.txt	2015-12-18 21:44:50.807185809 +0100
+@@ -203,7 +203,7 @@
+     # Linux/MacOS
+     # install Python related files into folder depending on used Python version
+ 
+-    EXECUTE_PROCESS( COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(1))"
++    EXECUTE_PROCESS( COMMAND ${PYTHON_EXECUTABLE} -c "from distutils.sysconfig import get_python_lib; print(get_python_lib(plat_specific=True, prefix='/usr'))"
+                      OUTPUT_VARIABLE pyinstalldir
+                      OUTPUT_STRIP_TRAILING_WHITESPACE)
+ 
