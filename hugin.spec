@@ -1,18 +1,15 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2014.0.0
-Release:	9
+Version:	2016.0.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	711784c27bdb743ddc45dc2c448ac87c
+# Source0-md5:	8407dd7275374a492610221e7ae56be9
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
-Patch2:		%{name}-boost.patch
-Patch3:		boost-1.57.0.patch
 Patch4:		no-sysctl.patch
-Patch5:		lensfun-0.3.patch
 Patch6:		python-install.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
@@ -69,10 +66,7 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 %setup -q
 #%patch0 -p1
 %patch1 -p0
-%patch2 -p1
-%patch3 -p1
 %patch4 -p1
-%patch5 -p1
 %patch6 -p1
 
 mv -f src/translations/{cs_CZ,cs}.po
@@ -115,8 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog LICENCE_VIGRA README TODO src/celeste/LICENCE_{GABOR,LIBSVM}
-%lang(ja) %doc README_JP
+%doc AUTHORS Changes.txt README TODO src/celeste/LICENCE_{GABOR,LIBSVM}
 %attr(755,root,root) %{_bindir}/PTBatcherGUI
 %attr(755,root,root) %{_bindir}/align_image_stack
 %attr(755,root,root) %{_bindir}/autooptimiser
@@ -129,7 +122,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/fulla
 %attr(755,root,root) %{_bindir}/geocpset
 %attr(755,root,root) %{_bindir}/hugin
+%attr(755,root,root) %{_bindir}/hugin_executor
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
+%attr(755,root,root) %{_bindir}/hugin_lensdb
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
 %attr(755,root,root) %{_bindir}/icpfind
 %attr(755,root,root) %{_bindir}/linefind
@@ -143,18 +138,16 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/pto_move
 %attr(755,root,root) %{_bindir}/pto_template
 %attr(755,root,root) %{_bindir}/pto_var
-%attr(755,root,root) %{_bindir}/pto2mk
 %attr(755,root,root) %{_bindir}/tca_correct
+%attr(755,root,root) %{_bindir}/verdandi
 %attr(755,root,root) %{_bindir}/vig_optimize
 %dir %{_libdir}/hugin
 %attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginlines.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhuginvigraimpex.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libmakefilelib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhugin_python_interface.so.*.*
 %attr(755,root,root) %{py_sitedir}/_hsi.so
 %{py_sitedir}/hpi.py*
@@ -183,14 +176,15 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/fulla.1*
 %{_mandir}/man1/geocpset.1*
 %{_mandir}/man1/hugin.1*
+%{_mandir}/man1/hugin_executor.1*
 %{_mandir}/man1/hugin_hdrmerge.1*
+%{_mandir}/man1/hugin_lensdb.1*
 %{_mandir}/man1/hugin_stitch_project.1*
 %{_mandir}/man1/icpfind.1*
 %{_mandir}/man1/linefind.1*
 %{_mandir}/man1/nona.1*
 %{_mandir}/man1/pano_modify.1*
 %{_mandir}/man1/pano_trafo.1*
-%{_mandir}/man1/pto2mk.1*
 %{_mandir}/man1/pto_gen.1*
 %{_mandir}/man1/pto_lensstack.1*
 %{_mandir}/man1/pto_merge.1*
@@ -200,3 +194,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/pto_var.1*
 %{_mandir}/man1/tca_correct.1*
 %{_mandir}/man1/vig_optimize.1*
+%{_mandir}/man1/verdandi.1*
