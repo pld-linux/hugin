@@ -2,7 +2,7 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	2016.0.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
@@ -97,7 +97,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 # cmake is so great there is no way to pass proper path
-mv $RPM_BUILD_ROOT%{_iconsdir}/{gnome,hicolor}
+%{__mv} $RPM_BUILD_ROOT%{_iconsdir}/{gnome,hicolor}
+
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ca_ES*
 
 %py_comp $RPM_BUILD_ROOT%{py_sitedir}
 %py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
