@@ -2,7 +2,7 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	2016.0.0
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
@@ -36,6 +36,7 @@ BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
+BuildRequires:	vigra-devel
 BuildRequires:	wxGTK2-unicode-devel >= 2.8.10
 BuildRequires:	wxGTK2-unicode-gl-devel >= 2.8.10
 BuildRequires:	zlib-devel
