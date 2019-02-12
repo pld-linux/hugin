@@ -1,0 +1,11 @@
+--- hugin-2018.0.0/src/hugin_base/panodata/Exiv2Helper.h~	2015-05-10 08:52:11.000000000 +0200
++++ hugin-2018.0.0/src/hugin_base/panodata/Exiv2Helper.h	2019-02-13 00:21:38.240804793 +0100
+@@ -30,7 +30,7 @@
+ 
+ #include <string>
+ #include <vector>
+-#include <exiv2/exif.hpp>
++#include <exiv2/exiv2.hpp>
+ 
+ // these functions are intentionally not exposed to public
+ // they are supposed only be used by SrcPanoImage.cpp for internal use
