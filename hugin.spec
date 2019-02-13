@@ -1,16 +1,17 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2016.0.0
-Release:	6
+Version:	2018.0.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	8407dd7275374a492610221e7ae56be9
+# Source0-md5:	91cb2c31409c9ef02fc86e17ec2fa068
 Patch0:		%{name}-pl.po-update.patch
 Patch1:		%{name}-cppflags.patch
-Patch4:		no-sysctl.patch
-Patch6:		python-install.patch
+Patch2:		no-sysctl.patch
+Patch3:		python-install.patch
+Patch4:		exiv2-0.27.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -67,8 +68,9 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 %setup -q
 #%patch0 -p1
 %patch1 -p0
+%patch2 -p1
+%patch3 -p1
 %patch4 -p1
-%patch6 -p1
 
 mv -f src/translations/{cs_CZ,cs}.po
 
