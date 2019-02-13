@@ -2,7 +2,7 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	2018.0.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
@@ -86,6 +86,7 @@ cd build
 	-DCMAKE_BUILD_TYPE=%{?debug:Debug}%{!?debug:None} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
+	-DBUILD_HSI:BOOL=ON \
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
@@ -130,6 +131,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hugin_executor
 %attr(755,root,root) %{_bindir}/hugin_hdrmerge
 %attr(755,root,root) %{_bindir}/hugin_lensdb
+%attr(755,root,root) %{_bindir}/hugin_stacker
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
 %attr(755,root,root) %{_bindir}/icpfind
 %attr(755,root,root) %{_bindir}/linefind
@@ -150,7 +152,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhuginlines.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhugin_python_interface.so.*.*
