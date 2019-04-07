@@ -1,15 +1,13 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2018.0.0
-Release:	2
+Version:	2019.0.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	91cb2c31409c9ef02fc86e17ec2fa068
-Patch0:		%{name}-pl.po-update.patch
+# Source0-md5:	4ca039f96bfc592c4adcebe27b98fee3
 Patch1:		%{name}-cppflags.patch
-Patch2:		no-sysctl.patch
 Patch3:		python-install.patch
 Patch4:		exiv2-0.27.patch
 URL:		http://hugin.sourceforge.net/
@@ -66,9 +64,7 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
-#%patch0 -p1
 %patch1 -p0
-%patch2 -p1
 %patch3 -p1
 %patch4 -p1
 
@@ -167,9 +163,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/pto_gen.desktop
 %{_desktopdir}/PTBatcherGUI.desktop
 %{_desktopdir}/calibrate_lens_gui.desktop
-%{_iconsdir}/hicolor/*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
-%{_pixmapsdir}/hugin.png
-%{_pixmapsdir}/ptbatcher.png
+%{_iconsdir}/hicolor/*x*/apps/hugin.png
+%{_iconsdir}/hicolor/*x*/apps/ptbatcher.png
+%{_iconsdir}/hicolor/gnome/*x*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
+%{_iconsdir}/hicolor/scalable/apps/hugin.svg
+%{_iconsdir}/hicolor/scalable/apps/ptbatcher.svg
 %{_mandir}/man1/PTBatcherGUI.1*
 %{_mandir}/man1/align_image_stack.1*
 %{_mandir}/man1/autooptimiser.1*
