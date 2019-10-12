@@ -9,3 +9,17 @@
  
  // these functions are intentionally not exposed to public
  // they are supposed only be used by SrcPanoImage.cpp for internal use
+--- hugin-2019.0.0/src/hugin1/hugin/RawImport.cpp~	2019-02-02 11:11:01.000000000 +0100
++++ hugin-2019.0.0/src/hugin1/hugin/RawImport.cpp	2019-10-12 16:35:33.327500060 +0200
+@@ -35,10 +35,7 @@
+ // workaround for a conflict between exiv2 and wxWidgets/CMake built
+ #define HAVE_PID_T 1
+ #endif
+-#include <exiv2/exif.hpp>
+-#include <exiv2/image.hpp>
+-#include <exiv2/easyaccess.hpp>
+-#include <exiv2/xmpsidecar.hpp>
++#include <exiv2/exiv2.hpp>
+ #ifdef __WXMSW__
+ #include <wx/msw/registry.h>
+ #endif
