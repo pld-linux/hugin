@@ -1,15 +1,14 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2019.0.0
-Release:	6
+Version:	2019.2.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	4ca039f96bfc592c4adcebe27b98fee3
-Patch1:		%{name}-cppflags.patch
-Patch3:		python-install.patch
-Patch4:		exiv2-0.27.patch
+# Source0-md5:	3409c3a84e1881145b5b556df63de73c
+Patch0:		%{name}-cppflags.patch
+Patch1:		python-install.patch
 URL:		http://hugin.sourceforge.net/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
@@ -30,7 +29,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	perl-Image-ExifTool
 BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
-BuildRequires:	python-devel
+BuildRequires:	python3-devel
 BuildRequires:	rpmbuild(macros) >= 1.471
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig-python >= 2.0.4
@@ -64,13 +63,12 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
-%patch1 -p0
-%patch3 -p1
-%patch4 -p1
+%patch0 -p0
+%patch1 -p1
 
 mv -f src/translations/{cs_CZ,cs}.po
 
-%{__sed} -i -e '1s,#! \?/usr/bin/env python,#!/usr/bin/python,' \
+%{__sed} -i -e '1s,#! \?/usr/bin/env python,#!/usr/bin/python3,' \
 	src/hugin_script_interface/hpi.py \
 	src/hugin_script_interface/plugins/*.py \
 	src/hugin_script_interface/plugins-dev/*.py
@@ -153,9 +151,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
 %attr(755,root,root) %{_libdir}/hugin/libhugin_python_interface.so.*.*
-%attr(755,root,root) %{py_sitedir}/_hsi.so
-%{py_sitedir}/hpi.py*
-%{py_sitedir}/hsi.py*
+%attr(755,root,root) %{py3_sitedir}/_hsi.so
+%{py3_sitedir}/hpi.py*
+%{py3_sitedir}/hsi.py*
 %{_datadir}/%{name}
 %{_datadir}/appdata/PTBatcherGUI.appdata.xml
 %{_datadir}/appdata/calibrate_lens_gui.appdata.xml
