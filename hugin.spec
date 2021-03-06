@@ -30,7 +30,7 @@ BuildRequires:	perl-Image-ExifTool
 BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
 BuildRequires:	python3-devel
-BuildRequires:	rpmbuild(macros) >= 1.471
+BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	sed >= 4.0
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
