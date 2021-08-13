@@ -79,7 +79,6 @@ mv -f src/translations/{cs_CZ,cs}.po
 install -d build
 cd build
 %cmake .. \
-	-DCMAKE_BUILD_TYPE=%{?debug:Debug}%{!?debug:None} \
 	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
 	-DCMAKE_VERBOSE_MAKEFILE=ON \
 	-DBUILD_HSI:BOOL=ON \
