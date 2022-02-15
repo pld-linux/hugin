@@ -59,8 +59,8 @@ you'll probably to install enblend-enfuse package too.
 Przy użyciu hugina można połączyć wiele fotografii w kompletną, dużą
 panoramę, skleić dowolny ciąg nakładających się zdjęć i wiele więcej.
 
-Hugin może używać programów enblend i enfuse do wygładzania krawędzi
-i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
+Hugin może używać programów enblend i enfuse do wygładzania krawędzi i
+ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
@@ -102,13 +102,13 @@ rm -rf $RPM_BUILD_ROOT
 
 # cmake is so great there is no way to pass proper path
 %{__mv} $RPM_BUILD_ROOT%{_iconsdir}/{gnome,hicolor}
-
-%{__rm} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/gnome/*x*/mimetypes/gnome-mime-application-x-ptoptimizer-script.png
+%{__mv} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/gnome/48x48/* $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/
+%{__rm} -r $RPM_BUILD_ROOT%{_iconsdir}/hicolor/gnome/48x48
 
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ca_ES*
 
-%py_comp $RPM_BUILD_ROOT%{py_sitedir}
-%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
+%py3_comp $RPM_BUILD_ROOT%{py3_sitedir}
+%py3_ocomp $RPM_BUILD_ROOT%{py3_sitedir}
 
 %find_lang %{name}
 
@@ -160,10 +160,11 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py3_sitedir}/_hsi.so
 %{py3_sitedir}/hpi.py*
 %{py3_sitedir}/hsi.py*
+%{py3_sitedir}/__pycache__/*
 %{_datadir}/%{name}
-%{_datadir}/appdata/PTBatcherGUI.appdata.xml
-%{_datadir}/appdata/calibrate_lens_gui.appdata.xml
-%{_datadir}/appdata/hugin.appdata.xml
+%{_datadir}/metainfo/PTBatcherGUI.appdata.xml
+%{_datadir}/metainfo/calibrate_lens_gui.appdata.xml
+%{_datadir}/metainfo/hugin.appdata.xml
 %{_datadir}/mime/packages/hugin.xml
 %{_desktopdir}/hugin.desktop
 %{_desktopdir}/pto_gen.desktop
@@ -171,6 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/calibrate_lens_gui.desktop
 %{_iconsdir}/hicolor/*x*/apps/hugin.png
 %{_iconsdir}/hicolor/*x*/apps/ptbatcher.png
+%{_iconsdir}/hicolor/*x*/mimetypes/application-x-ptoptimizer-script.png
 %{_iconsdir}/hicolor/scalable/apps/hugin.svg
 %{_iconsdir}/hicolor/scalable/apps/ptbatcher.svg
 %{_mandir}/man1/PTBatcherGUI.1*
@@ -188,6 +190,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/hugin_executor.1*
 %{_mandir}/man1/hugin_hdrmerge.1*
 %{_mandir}/man1/hugin_lensdb.1*
+%{_mandir}/man1/hugin_stacker.1*
 %{_mandir}/man1/hugin_stitch_project.1*
 %{_mandir}/man1/icpfind.1*
 %{_mandir}/man1/linefind.1*
