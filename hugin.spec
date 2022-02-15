@@ -68,7 +68,10 @@ i ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 %patch1 -p1
 %patch2 -p1
 
-mv -f src/translations/{cs_CZ,cs}.po
+# Old, broken duplicate of the system cmake one
+%{__rm} CMakeModules/FindZLIB.cmake
+
+%{__mv} src/translations/{cs_CZ,cs}.po
 
 %{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+python3(\s|$),#!%{__python3}\1,' \
       src/hugin_script_interface/hpi.py \
