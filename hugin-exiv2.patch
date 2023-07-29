@@ -1,0 +1,67 @@
+--- hugin-2020.0.0/src/hugin_base/panodata/SrcPanoImage.cpp.orig	2020-09-12 12:46:03.000000000 +0200
++++ hugin-2020.0.0/src/hugin_base/panodata/SrcPanoImage.cpp	2023-07-28 22:43:30.687904298 +0200
+@@ -362,7 +362,7 @@ bool SrcPanoImage::readEXIF()
+                     pos = xmpData.findKey(Exiv2::XmpKey("Xmp.GPano.CroppedAreaImageWidthPixels"));
+                     if (pos != xmpData.end())
+                     {
+-                        croppedWidth = pos->toLong();
++                        croppedWidth = pos->toInt64();
+                     }
+                     else
+                     {
+@@ -372,7 +372,7 @@ bool SrcPanoImage::readEXIF()
+                     pos = xmpData.findKey(Exiv2::XmpKey("Xmp.GPano.CroppedAreaImageHeightPixels"));
+                     if (pos != xmpData.end())
+                     {
+-                        croppedHeight = pos->toLong();
++                        croppedHeight = pos->toInt64();
+                     }
+                     else
+                     {
+@@ -386,7 +386,7 @@ bool SrcPanoImage::readEXIF()
+                         double hfov = 0;
+                         if (pos != xmpData.end())
+                         {
+-                            hfov = 360 * croppedWidth / (double)pos->toLong();
++                            hfov = 360 * croppedWidth / (double)pos->toInt64();
+                         }
+                         else
+                         {
+@@ -397,7 +397,7 @@ bool SrcPanoImage::readEXIF()
+                         pos = xmpData.findKey(Exiv2::XmpKey("Xmp.GPano.FullPanoHeightPixels"));
+                         if (pos != xmpData.end())
+                         {
+-                            fullHeight = pos->toLong();
++                            fullHeight = pos->toInt64();
+                         }
+                         else
+                         {
+@@ -408,7 +408,7 @@ bool SrcPanoImage::readEXIF()
+                         pos = xmpData.findKey(Exiv2::XmpKey("Xmp.GPano.CroppedAreaTopPixels"));
+                         if (pos != xmpData.end())
+                         {
+-                            cropTop = pos->toLong();
++                            cropTop = pos->toInt64();
+                         }
+                         else
+                         {
+--- hugin-2020.0.0/src/hugin_base/panodata/Exiv2Helper.cpp.orig	2019-05-15 17:30:47.000000000 +0200
++++ hugin-2020.0.0/src/hugin_base/panodata/Exiv2Helper.cpp	2023-07-29 06:56:08.543554353 +0200
+@@ -40,7 +40,7 @@ namespace HuginBase
+             Exiv2::ExifData::iterator itr = exifData.findKey(Exiv2::ExifKey(keyName));
+             if (itr != exifData.end() && itr->count())
+             {
+-                value = itr->toLong();
++                value = itr->toInt64();
+                 return true;
+             }
+             else
+@@ -165,7 +165,7 @@ namespace HuginBase
+         {
+             if(it!=exifData.end() && it->count())
+             {
+-                return it->toLong();
++                return it->toInt64();
+             }
+             return 0;
+         };
