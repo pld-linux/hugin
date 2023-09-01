@@ -1,28 +1,30 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2020.0.0
-Release:	7
+Version:	2022.0.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
-Source0:	http://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	59e152871b74fb071bc086fc23a4774a
+Source0:	https://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
+# Source0-md5:	76bbd3d0debc8c8483192d832b9377fd
 Patch0:		%{name}-cppflags.patch
 Patch1:		python-install.patch
-Patch2:		openexr3.patch
-Patch3:		%{name}-exiv2.patch
-URL:		http://hugin.sourceforge.net/
+Patch2:		%{name}-exiv2.patch
+URL:		https://hugin.sourceforge.io/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	ZThread-devel
-BuildRequires:	boost-devel >= 1.41.0
-BuildRequires:	cmake >= 2.8
+BuildRequires:	boost-devel >= 1.47.0
+BuildRequires:	cmake >= 3.8
 BuildRequires:	exiv2-devel
-BuildRequires:	flann-devel
+BuildRequires:	fftw3-devel >= 3
+BuildRequires:	flann-devel >= 1.9.2-4
 BuildRequires:	gettext-tools
 BuildRequires:	glew-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.3
+BuildRequires:	lcms2-devel >= 2
 BuildRequires:	lensfun-devel
+BuildRequires:	libgomp-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano13-devel >= 2.9.19
 BuildRequires:	libpng-devel
@@ -31,14 +33,16 @@ BuildRequires:	libtiff-devel
 BuildRequires:	perl-Image-ExifTool
 BuildRequires:	perl-tools-pod
 BuildRequires:	pkgconfig
-BuildRequires:	python3-devel
+BuildRequires:	python3-devel >= 1:3.0
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	sed >= 4.0
+BuildRequires:	sqlite3-devel >= 3
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
-BuildRequires:	vigra-devel
+BuildRequires:	vigra-devel >= 1.11.1-14
 BuildRequires:	wxGTK2-unicode-devel >= 2.8.10
 BuildRequires:	wxGTK2-unicode-gl-devel >= 2.8.10
+BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	zlib-devel
 Requires:	libpano13 >= 2.9.19
 Requires:	wxGTK2-unicode >= 2.8.10
@@ -65,22 +69,21 @@ ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
 
 # Old, broken duplicate of the system cmake one
 %{__rm} CMakeModules/FindZLIB.cmake
 
 %{__mv} src/translations/{cs_CZ,cs}.po
 
-%{__sed} -E -i -e '1s,#!\s*/usr/bin/env\s+python3(\s|$),#!%{__python3}\1,' \
-      src/hugin_script_interface/hpi.py \
-      src/hugin_script_interface/plugins-dev/dual_use.py \
-      src/hugin_script_interface/plugins-dev/plugin_skeleton.py \
-      src/hugin_script_interface/plugins/top_five.py \
-      src/hugin_script_interface/plugins/woa.py
+%{__sed} -i -e '1s,/usr/bin/env python3,%{__python3},' \
+	src/hugin_script_interface/hpi.py \
+	src/hugin_script_interface/plugins/top_five.py \
+	src/hugin_script_interface/plugins/woa.py \
+	src/hugin_script_interface/plugins-dev/dual_use.py \
+	src/hugin_script_interface/plugins-dev/plugin_skeleton.py
 
 %build
 install -d build
@@ -102,12 +105,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-# cmake is so great there is no way to pass proper path
-%{__mv} $RPM_BUILD_ROOT%{_iconsdir}/{gnome,hicolor}
-%{__mv} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/gnome/48x48/* $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/
-%{__rm} -r $RPM_BUILD_ROOT%{_iconsdir}/hicolor/gnome/48x48
-
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ca_ES*
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ca_ES,ca}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{ca_ES@valencia,ca@valencia}
 
 %py3_comp $RPM_BUILD_ROOT%{py3_sitedir}
 %py3_ocomp $RPM_BUILD_ROOT%{py3_sitedir}
@@ -162,7 +161,8 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{py3_sitedir}/_hsi.so
 %{py3_sitedir}/hpi.py*
 %{py3_sitedir}/hsi.py*
-%{py3_sitedir}/__pycache__/*
+%{py3_sitedir}/__pycache__/hpi.cpython-*.py[co]
+%{py3_sitedir}/__pycache__/hsi.cpython-*.py[co]
 %{_datadir}/%{name}
 %{_datadir}/metainfo/PTBatcherGUI.appdata.xml
 %{_datadir}/metainfo/calibrate_lens_gui.appdata.xml
