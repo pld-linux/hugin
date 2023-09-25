@@ -2,7 +2,7 @@ Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
 Version:	2022.0.0
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	https://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
@@ -21,7 +21,7 @@ BuildRequires:	fftw3-devel >= 3
 BuildRequires:	flann-devel >= 1.9.2-4
 BuildRequires:	gettext-tools
 BuildRequires:	glew-devel
-BuildRequires:	gtk+2-devel >= 1:2.0.3
+BuildRequires:	gtk+3-devel
 BuildRequires:	lcms2-devel >= 2
 BuildRequires:	lensfun-devel
 BuildRequires:	libgomp-devel
@@ -40,13 +40,13 @@ BuildRequires:	sqlite3-devel >= 3
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
 BuildRequires:	vigra-devel >= 1.11.1-14
-BuildRequires:	wxGTK2-unicode-devel >= 2.8.10
-BuildRequires:	wxGTK2-unicode-gl-devel >= 2.8.10
+BuildRequires:	wxGTK3-unicode-devel >= 2.8.10
+BuildRequires:	wxGTK3-unicode-gl-devel >= 2.8.10
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	zlib-devel
 Requires:	libpano13 >= 2.9.19
-Requires:	wxGTK2-unicode >= 2.8.10
-Requires:	wxGTK2-unicode-gl >= 2.8.10
+Requires:	wxGTK3-unicode >= 2.8.10
+Requires:	wxGTK3-unicode-gl >= 2.8.10
 Suggests:	enblend-enfuse >= 3.1
 # exiftool program
 Suggests:	perl-Image-ExifTool
@@ -95,7 +95,7 @@ cd build
 %if "%{_lib}" == "lib64"
 	-DLIB_SUFFIX=64 \
 %endif
-	-DwxWidgets_CONFIG_EXECUTABLE=%{_bindir}/wx-gtk2-unicode-config
+	-DwxWidgets_CONFIG_EXECUTABLE=%{_bindir}/wx-gtk3-unicode-config
 
 %{__make}
 
