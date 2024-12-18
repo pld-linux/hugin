@@ -7,9 +7,6 @@ License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	https://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
 # Source0-md5:	7e8ce50af10ace1a900e097ece206123
-Patch0:		%{name}-cppflags.patch
-Patch1:		python-install.patch
-Patch2:		%{name}-exiv2.patch
 URL:		https://hugin.sourceforge.io/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
