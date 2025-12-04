@@ -1,17 +1,16 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2024.0.1
-Release:	5
+Version:	2025.0.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	https://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	7e8ce50af10ace1a900e097ece206123
+# Source0-md5:	77e5667266de564c77bcd4ba28c7684a
 URL:		https://hugin.sourceforge.io/
 BuildRequires:	OpenEXR-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	ZThread-devel
-BuildRequires:	boost-devel >= 1.47.0
 BuildRequires:	cmake >= 3.8
 BuildRequires:	exiv2-devel
 BuildRequires:	fftw3-devel >= 3
@@ -37,13 +36,13 @@ BuildRequires:	sqlite3-devel >= 3
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
 BuildRequires:	vigra-devel >= 1.11.1-14
-BuildRequires:	wxGTK3-unicode-devel >= 2.8.10
-BuildRequires:	wxGTK3-unicode-gl-devel >= 2.8.10
+BuildRequires:	wxGTK3-unicode-devel >= 3.2
+BuildRequires:	wxGTK3-unicode-gl-devel >= 3.2
 BuildRequires:	xorg-lib-libX11-devel
 BuildRequires:	zlib-devel
 Requires:	libpano13 >= 2.9.19
-Requires:	wxGTK3-unicode >= 2.8.10
-Requires:	wxGTK3-unicode-gl >= 2.8.10
+Requires:	wxGTK3-unicode >= 3.2
+Requires:	wxGTK3-unicode-gl >= 3.2
 Suggests:	enblend-enfuse >= 3.1
 # exiftool program
 Suggests:	perl-Image-ExifTool
@@ -130,6 +129,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/hugin_lensdb
 %attr(755,root,root) %{_bindir}/hugin_stacker
 %attr(755,root,root) %{_bindir}/hugin_stitch_project
+%attr(755,root,root) %{_bindir}/hugin_toolbox
 %attr(755,root,root) %{_bindir}/icpfind
 %attr(755,root,root) %{_bindir}/linefind
 %attr(755,root,root) %{_bindir}/nona
@@ -146,12 +146,12 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/verdandi
 %attr(755,root,root) %{_bindir}/vig_optimize
 %dir %{_libdir}/hugin
-%attr(755,root,root) %{_libdir}/hugin/libceleste.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhuginbase.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhuginbasewx.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libicpfindlib.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/liblocalfeatures.so.*.*
-%attr(755,root,root) %{_libdir}/hugin/libhugin_python_interface.so.*.*
+%{_libdir}/hugin/libceleste.so.*.*
+%{_libdir}/hugin/libhuginbase.so.*.*
+%{_libdir}/hugin/libhuginbasewx.so.*.*
+%{_libdir}/hugin/libicpfindlib.so.*.*
+%{_libdir}/hugin/liblocalfeatures.so.*.*
+%{_libdir}/hugin/libhugin_python_interface.so.*.*
 %attr(755,root,root) %{py3_sitedir}/_hsi.so
 %{py3_sitedir}/hpi.py*
 %{py3_sitedir}/hsi.py*
@@ -161,11 +161,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/metainfo/PTBatcherGUI.appdata.xml
 %{_datadir}/metainfo/calibrate_lens_gui.appdata.xml
 %{_datadir}/metainfo/hugin.appdata.xml
+%{_datadir}/metainfo/hugin_toolbox.appdata.xml
 %{_datadir}/mime/packages/hugin.xml
-%{_desktopdir}/hugin.desktop
-%{_desktopdir}/pto_gen.desktop
 %{_desktopdir}/PTBatcherGUI.desktop
 %{_desktopdir}/calibrate_lens_gui.desktop
+%{_desktopdir}/hugin.desktop
+%{_desktopdir}/hugin_toolbox_gui.desktop
+%{_desktopdir}/pto_gen.desktop
 %{_iconsdir}/hicolor/*x*/apps/hugin.png
 %{_iconsdir}/hicolor/*x*/apps/ptbatcher.png
 %{_iconsdir}/hicolor/*x*/mimetypes/application-x-ptoptimizer-script.png
