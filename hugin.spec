@@ -1,21 +1,24 @@
 Summary:	Toolchain to create panoramic images
 Summary(pl.UTF-8):	Zestaw narzędzi do tworzenia panoramicznych zdjęć
 Name:		hugin
-Version:	2025.0.0
-Release:	2
+Version:	2025.0.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 Source0:	https://downloads.sourceforge.net/hugin/%{name}-%{version}.tar.bz2
-# Source0-md5:	77e5667266de564c77bcd4ba28c7684a
+# Source0-md5:	d6c10756ca9362b9fd63ae66365cd2bf
+Patch0:		%{name}-vigra.patch
 URL:		https://hugin.sourceforge.io/
 BuildRequires:	OpenEXR-devel
-BuildRequires:	OpenGL-glut-devel
-BuildRequires:	ZThread-devel
-BuildRequires:	cmake >= 3.8
+BuildRequires:	OpenGL-devel
+BuildRequires:	OpenGL-GLU-devel
+BuildRequires:	OpenGL-GLX-devel
+BuildRequires:	cmake >= 3.15
 BuildRequires:	exiv2-devel
 BuildRequires:	fftw3-devel >= 3
 BuildRequires:	flann-devel >= 1.9.2-4
 BuildRequires:	gettext-tools
+# or libepoxy-devel with -DBUILD_WITH_EPOXY=ON
 BuildRequires:	glew-devel
 BuildRequires:	gtk+3-devel
 BuildRequires:	lcms2-devel >= 2
@@ -24,7 +27,8 @@ BuildRequires:	libgomp-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpano13-devel >= 2.9.19
 BuildRequires:	libpng-devel
-BuildRequires:	libstdc++-devel
+# C++17
+BuildRequires:	libstdc++-devel >= 6:7
 BuildRequires:	libtiff-devel
 BuildRequires:	perl-Image-ExifTool
 BuildRequires:	perl-tools-pod
@@ -36,6 +40,7 @@ BuildRequires:	sqlite3-devel >= 3
 BuildRequires:	swig-python >= 2.0.4
 BuildRequires:	tclap
 BuildRequires:	vigra-devel >= 1.11.1-14
+# components: base core aui xrc html xml adv gl net qa propgrid
 BuildRequires:	wxGTK3-unicode-devel >= 3.2
 BuildRequires:	wxGTK3-unicode-gl-devel >= 3.2
 BuildRequires:	xorg-lib-libX11-devel
@@ -65,6 +70,7 @@ ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 # Old, broken duplicate of the system cmake one
 %{__rm} CMakeModules/FindZLIB.cmake
@@ -79,18 +85,11 @@ ekspozycji, więc warto zainstalować pakiet enblend-enfuse.
 	src/hugin_script_interface/plugins-dev/plugin_skeleton.py
 
 %build
-install -d build
-cd build
-%cmake .. \
-	-DCMAKE_INSTALL_PREFIX=%{_prefix} \
-	-DCMAKE_VERBOSE_MAKEFILE=ON \
+%cmake -B build \
 	-DBUILD_HSI:BOOL=ON \
-%if "%{_lib}" == "lib64"
-	-DLIB_SUFFIX=64 \
-%endif
 	-DwxWidgets_CONFIG_EXECUTABLE=%{_bindir}/wx-gtk3-unicode-config
 
-%{__make}
+%{__make} -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT

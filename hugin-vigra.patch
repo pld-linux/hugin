@@ -1,0 +1,34 @@
+--- hugin-2025.0.1/CMakeModules/FindVIGRA.cmake.orig	2021-08-21 16:43:52.000000000 +0200
++++ hugin-2025.0.1/CMakeModules/FindVIGRA.cmake	2026-07-11 09:47:42.273734461 +0200
+@@ -53,7 +53,8 @@ IF (VIGRA_FOUND)
+   IF(NOT VIGRA_CONFIG_VERSION_HXX)
+     MESSAGE(FATAL_ERROR "Could not find vigra/configVersion.hxx or vigra/config_version.hxx. Your vigra installation seems to be corrupt.")
+   ENDIF()
+-  FILE(STRINGS "${VIGRA_CONFIG_VERSION_HXX}" VIGRA_VERSION_HXX REGEX ".*#define +VIGRA_VERSION +\"")
++  FILE(STRINGS "${VIGRA_CONFIG_VERSION_HXX}" VIGRA_VERSION_HXX REGEX ".*#define +VIGRA_VERSION +\"([.0-9]+)")
++  IF (VIGRA_VERSION_HXX)
+   STRING(REGEX REPLACE ".*#define +VIGRA_VERSION +\"([.0-9]+).*" "\\1" VIGRA_VERSION "${VIGRA_VERSION_HXX}")
+   IF(${VIGRA_VERSION} VERSION_EQUAL VIGRA_FIND_VERSION OR ${VIGRA_VERSION} VERSION_GREATER VIGRA_FIND_VERSION)
+     SET(VIGRA_VERSION_CHECK TRUE)
+@@ -63,6 +64,21 @@ IF (VIGRA_FOUND)
+         "VIGRA lib is too old.\nHugin requires at least version 1.9.0, but found version ${VIGRA_VERSION}."
+     )
+   ENDIF()
++  ELSE()
++    FILE(STRINGS "${VIGRA_CONFIG_VERSION_HXX}" VIGRA_VERSION_HXX_MAJOR REGEX ".*#define +VIGRA_VERSION_MAJOR +([0-9]+)")
++    FILE(STRINGS "${VIGRA_CONFIG_VERSION_HXX}" VIGRA_VERSION_HXX_MINOR REGEX ".*#define +VIGRA_VERSION_MINOR +([0-9]+)")
++    STRING(REGEX REPLACE ".*#define +VIGRA_VERSION_MAJOR +([0-9]+).*" "\\1" VIGRA_VERSION_MAJOR "${VIGRA_VERSION_HXX_MAJOR}")
++    STRING(REGEX REPLACE ".*#define +VIGRA_VERSION_MINOR +([0-9]+).*" "\\1" VIGRA_VERSION_MINOR "${VIGRA_VERSION_HXX_MINOR}")
++    SET(VIGRA_VERSION "${VIGRA_VERSION_MAJOR}.${VIGRA_VERSION_MINOR}")
++    IF (${VIGRA_VERSION} VERSION_GREATER_EQUAL VIGRA_FIND_VERSION)
++      SET(VIGRA_VERSION_CHECK TRUE)
++      MESSAGE(STATUS "VIGRA version: ${VIGRA_VERSION}")
++    ELSE()
++      MESSAGE(FATAL_ERROR 
++        "VIGRA lib is too old.\nHugin requires at least version 1.9.0, but found version ${VIGRA_VERSION}."
++      )
++    ENDIF()
++  ENDIF()
+ 
+   # check if vigraimpex is linked against OpenEXR
+   IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
